@@ -71,6 +71,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\State.cpp" />
+    <ClCompile Include="Source\StateStack.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Presidents\Foreach.hpp" />
+    <ClInclude Include="Include\Presidents\State.hpp" />
+    <ClInclude Include="Include\Presidents\StateIdentifiers.hpp" />
+    <ClInclude Include="Include\Presidents\StateStack.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
