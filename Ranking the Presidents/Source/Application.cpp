@@ -3,17 +3,34 @@
 #include <SFML/Window/Event.hpp>
 
 
+const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
+
 Application::Application()
-  : mWindow(sf::VideoMode(200, 200), "Ranking the Presidents")
+  : mWindow(sf::VideoMode(400, 400), "Ranking the Presidents")
+  , mTexture()
+  , mSprite()
 {
+  if (!mTexture.loadFromFile("Media/Textures/JohnTyler.png"))
+  {
+    // handle loading error
+  }
+  mSprite.setTexture(mTexture);
+  mSprite.setPosition(100.f, 100.f);
 }
 
 void Application::run()
 {
+  sf::Clock clock;
+  sf::Time timeSinceLastUpdate = sf::Time::Zero;
   while (mWindow.isOpen())
   {
-    processInput();
-    update();
+    timeSinceLastUpdate += clock.restart();
+    while (timeSinceLastUpdate > TimePerFrame)
+    {
+      timeSinceLastUpdate -= TimePerFrame;
+      processInput();
+      update(TimePerFrame);
+    }
     render();
   }
 }
@@ -28,12 +45,13 @@ void Application::processInput()
   }
 }
 
-void Application::update()
+void Application::update(sf::Time dt)
 {
 }
 
 void Application::render()
 {
   mWindow.clear();
+  mWindow.draw(mSprite);
   mWindow.display();
 }
