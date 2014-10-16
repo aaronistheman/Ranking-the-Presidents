@@ -1,9 +1,7 @@
 #ifndef PRESIDENTS_APPLICATION_HPP
 #define PRESIDENTS_APPLICATION_HPP
 
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics.hpp>
 
 
 class Application
@@ -15,6 +13,7 @@ class Application
   private:
     void        processInput();
     void        update(sf::Time dt);
+    void        updateStatistics(sf::Time dt);
     void        render();
 
   private:		
@@ -23,6 +22,11 @@ class Application
     sf::RenderWindow      mWindow;
     sf::Texture           mTexture;
     sf::Sprite            mSprite;
+
+    sf::Font              mStatisticsFont;
+    sf::Text              mStatisticsText;
+    sf::Time              mStatisticsUpdateTime;
+    std::size_t           mStatisticsNumFrames;
 };
 
 #endif
