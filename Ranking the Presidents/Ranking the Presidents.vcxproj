@@ -75,9 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Presidents\Application.hpp" />
+    <ClInclude Include="Include\Presidents\ResourceHolder.hpp" />
     <ClInclude Include="Include\Presidents\Utility.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Include\Presidents\ResourceHolder.inl" />
     <None Include="Include\Presidents\Utility.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

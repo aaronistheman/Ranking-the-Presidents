@@ -29,9 +29,15 @@
     <ClInclude Include="Include\Presidents\Utility.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Presidents\ResourceHolder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\Presidents\Utility.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Include\Presidents\ResourceHolder.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
