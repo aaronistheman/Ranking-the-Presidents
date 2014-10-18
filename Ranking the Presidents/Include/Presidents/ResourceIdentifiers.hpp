@@ -13,17 +13,7 @@ namespace Textures
 {
 	enum ID
 	{
-		HeroTank,
-    DummyTank,
-    HuntingTank1,
-    HuntingTank2,
-    GuardingTank1,
-    Bullet,
-    Metal,
-    TitleScreen,
-    ButtonNormal,
-    ButtonSelected,
-    ButtonPressed
+	  NothingYet
 	};
 }
 
