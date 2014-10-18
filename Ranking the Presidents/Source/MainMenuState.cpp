@@ -21,8 +21,8 @@ MainMenuState::MainMenuState(StateStack& stack, Context context)
 void MainMenuState::draw()
 {
   sf::RenderWindow& window = *getContext().window;
-  window.draw(mBackgroundSprite);
-  window.draw(mText);
+  // window.draw(mBackgroundSprite);
+  // window.draw(mText);
 }
 
 bool MainMenuState::update(sf::Time dt)

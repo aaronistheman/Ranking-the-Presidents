@@ -6,6 +6,7 @@
 #include <Presidents/StateStack.hpp>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/System/Time.hpp>
 
 
 class Application
