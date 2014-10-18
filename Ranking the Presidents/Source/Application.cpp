@@ -1,5 +1,8 @@
 #include <Presidents/Application.hpp>
 #include <Presidents/Utility.hpp>
+#include <Presidents/MainMenuState.hpp>
+#include <Presidents/State.hpp>
+#include <Presidents/StateIdentifiers.hpp>
 
 #include <SFML/Window/Event.hpp>
 
@@ -8,25 +11,23 @@ const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
 
 Application::Application()
   : mWindow(sf::VideoMode(400, 400), "Ranking the Presidents")
-  , mTexture()
-  , mSprite()
-  , mStatisticsFont()
+  , mTextures()
+  , mFonts()
+  , mStateStack(State::Context(mWindow, mTextures, mFonts))
   , mStatisticsText()
   , mStatisticsUpdateTime()
   , mStatisticsNumFrames(0)
 {
-  if (!mTexture.loadFromFile("Media/Textures/JohnTyler.png"))
-  {
-    // handle loading error
-  }
-  mSprite.setTexture(mTexture);
-  mSprite.setPosition(100.f, 100.f);
+  mWindow.setKeyRepeatEnabled(false);
 
-  mStatisticsFont.loadFromFile("Media/Sansation.ttf");
-  mStatisticsText.setFont(mStatisticsFont);
+  mTextures.load(Textures::JohnTyler, "Media/Textures/JohnTyler.png");
+  mFonts.load(Fonts::Main, "Media/Sansation.ttf");
+
+  mStatisticsText.setFont(mFonts.get(Fonts::Main));
   mStatisticsText.setPosition(5.f, 5.f);
   mStatisticsText.setCharacterSize(10);
 
+  registerStates();
   mStateStack.pushState(States::MainMenu);
 }
 
@@ -95,7 +96,6 @@ void Application::render()
 
   mStateStack.draw();
 
-  mWindow.draw(mSprite);
   mWindow.draw(mStatisticsText);
 
   mWindow.display();
@@ -104,8 +104,8 @@ void Application::render()
 void Application::registerStates()
 {
   mStateStack.registerState<MainMenuState>(States::MainMenu);
-  mStateStack.registerState<ProfilesState>(States::Profiles);
-  mStateStack.registerState<DescriptionsState>(States::Descriptions);
-  mStateStack.registerState<RankingsState>(States::Rankings);
-  mStateStack.registerState<AboutState>(States::About);
+  // mStateStack.registerState<ProfilesState>(States::Profiles);
+  // mStateStack.registerState<DescriptionsState>(States::Descriptions);
+  // mStateStack.registerState<RankingsState>(States::Rankings);
+  // mStateStack.registerState<AboutState>(States::About);
 }
