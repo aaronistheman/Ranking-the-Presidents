@@ -26,6 +26,8 @@ Application::Application()
   mStatisticsText.setFont(mStatisticsFont);
   mStatisticsText.setPosition(5.f, 5.f);
   mStatisticsText.setCharacterSize(10);
+
+  mStateStack.pushState(States::MainMenu);
 }
 
 void Application::run()
@@ -43,6 +45,10 @@ void Application::run()
       timeSinceLastUpdate -= TimePerFrame;
       processInput();
       update(TimePerFrame);
+
+      // Check inside this loop, because stack might be empty before update() call
+      if (mStateStack.isEmpty())
+        mWindow.close();
     }
 
     updateStatistics(elapsedTime);
@@ -55,6 +61,8 @@ void Application::processInput()
   sf::Event event;
   while (mWindow.pollEvent(event))
   {
+    mStateStack.handleEvent(event);
+
     if (event.type == sf::Event::Closed)
       mWindow.close();
   }
@@ -62,6 +70,7 @@ void Application::processInput()
 
 void Application::update(sf::Time dt)
 {
+  mStateStack.update(dt);
 }
 
 void Application::updateStatistics(sf::Time dt)
@@ -83,7 +92,20 @@ void Application::updateStatistics(sf::Time dt)
 void Application::render()
 {
   mWindow.clear();
+
+  mStateStack.draw();
+
   mWindow.draw(mSprite);
   mWindow.draw(mStatisticsText);
+
   mWindow.display();
+}
+
+void Application::registerStates()
+{
+  mStateStack.registerState<MainMenuState>(States::MainMenu);
+  mStateStack.registerState<ProfilesState>(States::Profiles);
+  mStateStack.registerState<DescriptionsState>(States::Descriptions);
+  mStateStack.registerState<RankingsState>(States::Rankings);
+  mStateStack.registerState<AboutState>(States::About);
 }
