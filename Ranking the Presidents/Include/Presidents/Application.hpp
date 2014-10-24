@@ -3,7 +3,7 @@
 
 #include <Presidents/ResourceHolder.hpp>
 #include <Presidents/ResourceIdentifiers.hpp>
-#include <Presidents/StateStack.hpp>
+// #include <Presidents/StateStack.hpp>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Time.hpp>
@@ -29,7 +29,7 @@ class Application
     sf::RenderWindow      mWindow;
     TextureHolder         mTextures;
     FontHolder            mFonts;
-    StateStack            mStateStack;
+    // StateStack            mStateStack;
 
     sf::Text              mStatisticsText;
     sf::Time              mStatisticsUpdateTime;

@@ -1,8 +1,8 @@
 #include <Presidents/Application.hpp>
 #include <Presidents/Utility.hpp>
-#include <Presidents/MainMenuState.hpp>
-#include <Presidents/State.hpp>
-#include <Presidents/StateIdentifiers.hpp>
+// #include <Presidents/MainMenuState.hpp>
+// #include <Presidents/State.hpp>
+// #include <Presidents/StateIdentifiers.hpp>
 
 #include <SFML/Window/Event.hpp>
 
@@ -13,7 +13,7 @@ Application::Application()
   : mWindow(sf::VideoMode(400, 400), "Ranking the Presidents")
   , mTextures()
   , mFonts()
-  , mStateStack(State::Context(mWindow, mTextures, mFonts))
+  // , mStateStack(State::Context(mWindow, mTextures, mFonts))
   , mStatisticsText()
   , mStatisticsUpdateTime()
   , mStatisticsNumFrames(0)
@@ -28,7 +28,7 @@ Application::Application()
   mStatisticsText.setCharacterSize(10);
 
   registerStates();
-  mStateStack.pushState(States::MainMenu);
+  // mStateStack.pushState(States::MainMenu);
 }
 
 void Application::run()
@@ -48,8 +48,8 @@ void Application::run()
       update(TimePerFrame);
 
       // Check inside this loop, because stack might be empty before update() call
-      if (mStateStack.isEmpty())
-        mWindow.close();
+      // if (mStateStack.isEmpty())
+      //   mWindow.close();
     }
 
     updateStatistics(elapsedTime);
@@ -62,7 +62,7 @@ void Application::processInput()
   sf::Event event;
   while (mWindow.pollEvent(event))
   {
-    mStateStack.handleEvent(event);
+    // mStateStack.handleEvent(event);
 
     if (event.type == sf::Event::Closed)
       mWindow.close();
@@ -71,7 +71,7 @@ void Application::processInput()
 
 void Application::update(sf::Time dt)
 {
-  mStateStack.update(dt);
+  // mStateStack.update(dt);
 }
 
 void Application::updateStatistics(sf::Time dt)
@@ -94,7 +94,7 @@ void Application::render()
 {
   mWindow.clear();
 
-  mStateStack.draw();
+  // mStateStack.draw();
 
   mWindow.draw(mStatisticsText);
 
@@ -103,7 +103,7 @@ void Application::render()
 
 void Application::registerStates()
 {
-  mStateStack.registerState<MainMenuState>(States::MainMenu);
+  // mStateStack.registerState<MainMenuState>(States::MainMenu);
   // mStateStack.registerState<ProfilesState>(States::Profiles);
   // mStateStack.registerState<DescriptionsState>(States::Descriptions);
   // mStateStack.registerState<RankingsState>(States::Rankings);

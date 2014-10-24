@@ -72,20 +72,13 @@
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Main.cpp" />
-    <ClCompile Include="Source\MainMenuState.cpp" />
-    <ClCompile Include="Source\State.cpp" />
-    <ClCompile Include="Source\StateStack.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Presidents\Application.hpp" />
     <ClInclude Include="Include\Presidents\Foreach.hpp" />
-    <ClInclude Include="Include\Presidents\MainMenuState.hpp" />
     <ClInclude Include="Include\Presidents\ResourceHolder.hpp" />
     <ClInclude Include="Include\Presidents\ResourceIdentifiers.hpp" />
-    <ClInclude Include="Include\Presidents\State.hpp" />
-    <ClInclude Include="Include\Presidents\StateIdentifiers.hpp" />
-    <ClInclude Include="Include\Presidents\StateStack.hpp" />
     <ClInclude Include="Include\Presidents\Utility.hpp" />
   </ItemGroup>
   <ItemGroup>
