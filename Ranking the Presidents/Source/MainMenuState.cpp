@@ -11,18 +11,18 @@ MainMenuState::MainMenuState(StateStack& stack, Context context)
   , mBackgroundSprite()
   , mText()
 {
-  // mBackgroundSprite.setTexture(context.textures->get(Textures::JohnTyler));
+  mBackgroundSprite.setTexture(context.textures->get(Textures::JohnTyler));
 
-  // mText.setFont(context.fonts->get(Fonts::Main));
-  // mText.setString("MainMenuState");
-  // centerOrigin(mText);
+  mText.setFont(context.fonts->get(Fonts::Main));
+  mText.setString("MainMenuState");
+  centerOrigin(mText);
 }
 
 void MainMenuState::draw()
 {
   sf::RenderWindow& window = *getContext().window;
-  // window.draw(mBackgroundSprite);
-  // window.draw(mText);
+  window.draw(mBackgroundSprite);
+  window.draw(mText);
 }
 
 bool MainMenuState::update(sf::Time dt)

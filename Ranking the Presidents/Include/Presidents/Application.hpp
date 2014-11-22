@@ -29,7 +29,7 @@ class Application
     sf::RenderWindow      mWindow;
     TextureHolder         mTextures;
     FontHolder            mFonts;
-    // StateStack            mStateStack;
+    StateStack            mStateStack;
 
     sf::Text              mStatisticsText;
     sf::Time              mStatisticsUpdateTime;
