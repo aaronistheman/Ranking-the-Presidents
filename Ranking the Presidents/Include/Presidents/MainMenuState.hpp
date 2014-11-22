@@ -19,6 +19,6 @@ class MainMenuState : public State
   private:
     sf::Sprite        mBackgroundSprite;
     sf::Text          mText;              // for testing purposes
-}
+};
 
 #endif // PRESIDENTS_MAINMENUSTATE_HPP
