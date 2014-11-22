@@ -1,8 +1,8 @@
 #include <Presidents/Application.hpp>
 #include <Presidents/Utility.hpp>
 // #include <Presidents/MainMenuState.hpp>
-// #include <Presidents/State.hpp>
-// #include <Presidents/StateIdentifiers.hpp>
+#include <Presidents/State.hpp>
+#include <Presidents/StateIdentifiers.hpp>
 
 #include <SFML/Window/Event.hpp>
 

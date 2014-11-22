@@ -3,7 +3,7 @@
 
 #include <Presidents/ResourceHolder.hpp>
 #include <Presidents/ResourceIdentifiers.hpp>
-// #include <Presidents/StateStack.hpp>
+#include <Presidents/StateStack.hpp>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Time.hpp>
