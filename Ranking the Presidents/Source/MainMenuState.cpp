@@ -15,6 +15,7 @@ MainMenuState::MainMenuState(StateStack& stack, Context context)
 
   mText.setFont(context.fonts->get(Fonts::Main));
   mText.setString("MainMenuState");
+  mText.setPosition(400.f, 275.f);
   centerOrigin(mText);
 }
 

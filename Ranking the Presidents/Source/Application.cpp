@@ -10,7 +10,7 @@
 const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
 
 Application::Application()
-  : mWindow(sf::VideoMode(400, 400), "Ranking the Presidents")
+  : mWindow(sf::VideoMode(800, 550), "Ranking the Presidents")
   , mTextures()
   , mFonts()
   , mStateStack(State::Context(mWindow, mTextures, mFonts))
