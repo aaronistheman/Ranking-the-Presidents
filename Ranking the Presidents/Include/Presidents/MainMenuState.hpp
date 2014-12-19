@@ -16,9 +16,21 @@ class MainMenuState : public State
     virtual bool      update(sf::Time dt);
     virtual bool      handleEvent(const sf::Event& event);
 
+    void              updateOptionText();
+
+
+  private:
+    enum OptionNames
+    {
+      Profiles,
+      Exit,
+    };
+
   private:
     sf::Sprite        mBackgroundSprite;
-    sf::Text          mText;              // for testing purposes
+
+    std::vector<sf::Text> mOptions;
+    std::size_t       mOptionIndex;
 };
 
 #endif // PRESIDENTS_MAINMENUSTATE_HPP
