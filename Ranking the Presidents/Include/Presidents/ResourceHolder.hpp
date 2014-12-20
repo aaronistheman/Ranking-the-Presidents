@@ -1,11 +1,11 @@
 #ifndef PRESIDENTS_RESOURCEHOLDER_HPP
 #define PRESIDENTS_RESOURCEHOLDER_HPP
 
+#include <cassert>
 #include <map>
-#include <string>
 #include <memory>
 #include <stdexcept>
-#include <cassert>
+#include <string>
 
 
 template <typename Resource, typename Identifier>

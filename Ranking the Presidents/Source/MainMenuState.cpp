@@ -1,7 +1,7 @@
 #include <Presidents/MainMenuState.hpp>
+#include <Presidents/Foreach.hpp>
 #include <Presidents/ResourceHolder.hpp>
 #include <Presidents/Utility.hpp>
-#include <Presidents/Foreach.hpp>
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>

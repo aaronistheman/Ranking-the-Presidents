@@ -1,8 +1,8 @@
 #ifndef PRESIDENTS_STATE_HPP
 #define PRESIDENTS_STATE_HPP
 
-#include <Presidents/StateIdentifiers.hpp>
 #include <Presidents/ResourceIdentifiers.hpp>
+#include <Presidents/StateIdentifiers.hpp>
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>

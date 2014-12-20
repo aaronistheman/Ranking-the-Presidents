@@ -1,17 +1,17 @@
 #ifndef PRESIDENTS_STATESTACK_HPP
 #define PRESIDENTS_STATESTACK_HPP
 
+#include <Presidents/ResourceIdentifiers.hpp>
 #include <Presidents/State.hpp>
 #include <Presidents/StateIdentifiers.hpp>
-#include <Presidents/ResourceIdentifiers.hpp>
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Time.hpp>
 
-#include <vector>
-#include <utility>
 #include <functional>
 #include <map>
+#include <utility>
+#include <vector>
 
 
 namespace sf
