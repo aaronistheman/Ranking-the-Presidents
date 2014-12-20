@@ -26,12 +26,20 @@ MainMenuState::MainMenuState(StateStack& stack, Context context)
   profilesOption.setPosition(context.window->getView().getSize() / 2.f);
   mOptions.push_back(profilesOption);
 
+  // Add about option to menu
+  sf::Text aboutOption;
+  aboutOption.setFont(font);
+  aboutOption.setString("About");
+  centerOrigin(aboutOption);
+  aboutOption.setPosition(profilesOption.getPosition() + sf::Vector2f(0.f, 30.f));
+  mOptions.push_back(aboutOption);
+
   // Add exit option to menu
   sf::Text exitOption;
   exitOption.setFont(font);
   exitOption.setString("Exit");
   centerOrigin(exitOption);
-  exitOption.setPosition(profilesOption.getPosition() + sf::Vector2f(0.f, 30.f));
+  exitOption.setPosition(profilesOption.getPosition() + sf::Vector2f(0.f, 60.f));
   mOptions.push_back(exitOption);
 
   updateOptionText();
@@ -64,6 +72,11 @@ bool MainMenuState::handleEvent(const sf::Event& event)
     {
       requestStackPop();
       requestStackPush(States::Profiles);
+    }
+    else if (mOptionIndex == About)
+    {
+      requestStackPop();
+      requestStackPush(States::About);
     }
     else if (mOptionIndex == Exit)
     {

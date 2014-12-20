@@ -23,6 +23,7 @@ class MainMenuState : public State
     enum OptionNames
     {
       Profiles,
+      About,
       Exit,
     };
 
