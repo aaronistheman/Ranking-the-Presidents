@@ -1,8 +1,9 @@
 #include <Presidents/Application.hpp>
-#include <Presidents/Utility.hpp>
+#include <Presidents/AboutState.hpp>
 #include <Presidents/MainMenuState.hpp>
 #include <Presidents/State.hpp>
 #include <Presidents/StateIdentifiers.hpp>
+#include <Presidents/Utility.hpp>
 
 #include <SFML/Window/Event.hpp>
 
@@ -107,5 +108,5 @@ void Application::registerStates()
   // mStateStack.registerState<ProfilesState>(States::Profiles);
   // mStateStack.registerState<DescriptionsState>(States::Descriptions);
   // mStateStack.registerState<RankingsState>(States::Rankings);
-  // mStateStack.registerState<AboutState>(States::About);
+  mStateStack.registerState<AboutState>(States::About);
 }

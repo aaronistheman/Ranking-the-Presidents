@@ -70,6 +70,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\AboutState.cpp" />
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\MainMenuState.cpp" />
@@ -78,6 +79,7 @@
     <ClCompile Include="Source\Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Presidents\AboutState.hpp" />
     <ClInclude Include="Include\Presidents\Application.hpp" />
     <ClInclude Include="Include\Presidents\Foreach.hpp" />
     <ClInclude Include="Include\Presidents\MainMenuState.hpp" />
