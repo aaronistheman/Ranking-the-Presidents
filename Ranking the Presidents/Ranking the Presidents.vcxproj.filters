@@ -36,6 +36,9 @@
     <ClCompile Include="Source\AboutState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ProfilesState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Presidents\Application.hpp">
@@ -66,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\Presidents\AboutState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Presidents\ProfilesState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

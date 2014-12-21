@@ -12,7 +12,7 @@ AboutState::AboutState(StateStack& stack, Context context)
   sf::Font& font = context.fonts->get(Fonts::Main);
 
   mDescriptionText.setFont(font);
-  mDescriptionText.setString("AboutState");
+  mDescriptionText.setString("Press Backspace to return to the main menu");
   centerOrigin(mDescriptionText);
   mDescriptionText.setPosition(context.window->getView().getSize() / 2.f);
 }
@@ -32,5 +32,12 @@ bool AboutState::update(sf::Time dt)
 
 bool AboutState::handleEvent(const sf::Event& event)
 {
+  if (event.type == sf::Event::KeyReleased &&
+      event.key.code == sf::Keyboard::BackSpace)
+  {
+    requestStackPop();
+    requestStackPush(States::MainMenu);
+  }
+
   return true;
 }

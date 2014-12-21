@@ -74,6 +74,7 @@
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\MainMenuState.cpp" />
+    <ClCompile Include="Source\ProfilesState.cpp" />
     <ClCompile Include="Source\State.cpp" />
     <ClCompile Include="Source\StateStack.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
@@ -83,6 +84,7 @@
     <ClInclude Include="Include\Presidents\Application.hpp" />
     <ClInclude Include="Include\Presidents\Foreach.hpp" />
     <ClInclude Include="Include\Presidents\MainMenuState.hpp" />
+    <ClInclude Include="Include\Presidents\ProfilesState.hpp" />
     <ClInclude Include="Include\Presidents\ResourceHolder.hpp" />
     <ClInclude Include="Include\Presidents\ResourceIdentifiers.hpp" />
     <ClInclude Include="Include\Presidents\State.hpp" />
