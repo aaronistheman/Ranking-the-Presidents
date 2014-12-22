@@ -26,7 +26,8 @@ ProfilesState::ProfilesState(StateStack& stack, Context context)
   rankingsOption.setFont(font);
   rankingsOption.setString("View Rankings");
   centerOrigin(rankingsOption);
-  rankingsOption.setPosition(descriptionsOption.getPosition() + sf::Vector2f(0.f, 30.f));
+  rankingsOption.setPosition(
+    descriptionsOption.getPosition() + sf::Vector2f(0.f, 30.f));
   mOptions.push_back(rankingsOption);
 
   // Add back option to menu
@@ -34,7 +35,8 @@ ProfilesState::ProfilesState(StateStack& stack, Context context)
   backOption.setFont(font);
   backOption.setString("Back");
   centerOrigin(backOption);
-  backOption.setPosition(descriptionsOption.getPosition() + sf::Vector2f(0.f, 60.f));
+  backOption.setPosition(
+    descriptionsOption.getPosition() + sf::Vector2f(0.f, 60.f));
   mOptions.push_back(backOption);
 
   updateOptionText();

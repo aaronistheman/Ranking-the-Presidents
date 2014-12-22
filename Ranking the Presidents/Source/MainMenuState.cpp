@@ -31,7 +31,8 @@ MainMenuState::MainMenuState(StateStack& stack, Context context)
   aboutOption.setFont(font);
   aboutOption.setString("About");
   centerOrigin(aboutOption);
-  aboutOption.setPosition(profilesOption.getPosition() + sf::Vector2f(0.f, 30.f));
+  aboutOption.setPosition(
+    profilesOption.getPosition() + sf::Vector2f(0.f, 30.f));
   mOptions.push_back(aboutOption);
 
   // Add exit option to menu
@@ -39,7 +40,8 @@ MainMenuState::MainMenuState(StateStack& stack, Context context)
   exitOption.setFont(font);
   exitOption.setString("Exit");
   centerOrigin(exitOption);
-  exitOption.setPosition(profilesOption.getPosition() + sf::Vector2f(0.f, 60.f));
+  exitOption.setPosition(
+    profilesOption.getPosition() + sf::Vector2f(0.f, 60.f));
   mOptions.push_back(exitOption);
 
   updateOptionText();
