@@ -3,6 +3,7 @@
 #include <Presidents/DescriptionsState.hpp>
 #include <Presidents/MainMenuState.hpp>
 #include <Presidents/ProfilesState.hpp>
+#include <Presidents/RankingsState.hpp>
 #include <Presidents/State.hpp>
 #include <Presidents/StateIdentifiers.hpp>
 #include <Presidents/Utility.hpp>
@@ -109,6 +110,6 @@ void Application::registerStates()
   mStateStack.registerState<MainMenuState>(States::MainMenu);
   mStateStack.registerState<ProfilesState>(States::Profiles);
   mStateStack.registerState<DescriptionsState>(States::Descriptions);
-  // mStateStack.registerState<RankingsState>(States::Rankings);
+  mStateStack.registerState<RankingsState>(States::Rankings);
   mStateStack.registerState<AboutState>(States::About);
 }
