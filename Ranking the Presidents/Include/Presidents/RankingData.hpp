@@ -14,6 +14,7 @@ struct RankingData
   int peaceRating;
   int prosperityRating;
   int libertyRating;
+  int totalScore;
 };
 
 #endif // PRESIDENTS_RANKINGDATA_HPP

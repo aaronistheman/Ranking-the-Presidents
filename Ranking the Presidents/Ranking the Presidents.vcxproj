@@ -72,6 +72,7 @@
   <ItemGroup>
     <ClCompile Include="Source\AboutState.cpp" />
     <ClCompile Include="Source\Application.cpp" />
+    <ClCompile Include="Source\DataTables.cpp" />
     <ClCompile Include="Source\DescriptionsState.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\MainMenuState.cpp" />
@@ -84,10 +85,12 @@
   <ItemGroup>
     <ClInclude Include="Include\Presidents\AboutState.hpp" />
     <ClInclude Include="Include\Presidents\Application.hpp" />
+    <ClInclude Include="Include\Presidents\DataTables.hpp" />
     <ClInclude Include="Include\Presidents\DescriptionsState.hpp" />
     <ClInclude Include="Include\Presidents\Foreach.hpp" />
     <ClInclude Include="Include\Presidents\MainMenuState.hpp" />
     <ClInclude Include="Include\Presidents\ProfilesState.hpp" />
+    <ClInclude Include="Include\Presidents\RankingData.hpp" />
     <ClInclude Include="Include\Presidents\RankingsState.hpp" />
     <ClInclude Include="Include\Presidents\ResourceHolder.hpp" />
     <ClInclude Include="Include\Presidents\ResourceIdentifiers.hpp" />

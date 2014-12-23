@@ -1,9 +1,17 @@
 #include <Presidents/RankingsState.hpp>
+#include <Presidents/DataTables.hpp>
 #include <Presidents/ResourceHolder.hpp>
 #include <Presidents/Utility.hpp>
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include <iostream>
+
+
+namespace
+{
+  const std::vector<RankingData> Table = initializeRankingData();
+}
 
 RankingsState::RankingsState(StateStack& stack, Context context)
   : State(stack, context)
@@ -15,6 +23,11 @@ RankingsState::RankingsState(StateStack& stack, Context context)
   mDescriptionText.setString("RankingsState: Press Backspace to return");
   centerOrigin(mDescriptionText);
   mDescriptionText.setPosition(context.window->getView().getSize() / 2.f);
+
+  for (auto itr = Table.begin(); itr != Table.end(); ++itr)
+    std::cout << itr->number << ' ' << itr->name << ' ' << itr->rank << ' '
+              << itr->peaceRating << ' ' << itr->prosperityRating << ' '
+              << itr->libertyRating << ' ' << itr->totalScore << '\n';
 }
 
 void RankingsState::draw()
