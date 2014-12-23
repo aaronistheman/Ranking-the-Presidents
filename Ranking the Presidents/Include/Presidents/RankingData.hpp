@@ -8,13 +8,9 @@
 // For use in RankingsState.
 struct RankingData
 {
-  int number;
-  std::string name;
-  int rank;
-  int peaceRating;
-  int prosperityRating;
-  int libertyRating;
-  int totalScore;
+  int           number;
+  std::string   name;
+  int           rank;
 };
 
 #endif // PRESIDENTS_RANKINGDATA_HPP

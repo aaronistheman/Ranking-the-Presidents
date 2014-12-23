@@ -25,9 +25,7 @@ RankingsState::RankingsState(StateStack& stack, Context context)
   mDescriptionText.setPosition(context.window->getView().getSize() / 2.f);
 
   for (auto itr = Table.begin(); itr != Table.end(); ++itr)
-    std::cout << itr->number << ' ' << itr->name << ' ' << itr->rank << ' '
-              << itr->peaceRating << ' ' << itr->prosperityRating << ' '
-              << itr->libertyRating << ' ' << itr->totalScore << '\n';
+    std::cout << itr->number << ' ' << itr->name << ' ' << itr->rank << '\n';
 }
 
 void RankingsState::draw()
