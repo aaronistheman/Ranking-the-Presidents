@@ -33,7 +33,7 @@
 "Lyndon B. Johnson"	32
 "Richard Nixon"		30
 "Gerald Ford"		16
-"Jimmy Carter		8
+"Jimmy Carter"		8
 "Ronald Reagan"		35
 "George H.W. Bush"	33
 "William J. Clinton"	11
