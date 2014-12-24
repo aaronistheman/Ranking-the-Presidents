@@ -17,17 +17,11 @@ namespace
 
 RankingsState::RankingsState(StateStack& stack, Context context)
   : State(stack, context)
-  , mDescriptionText()
   , mView(context.window->getDefaultView())
   , mIsScrollingUp(false)
   , mIsScrollingDown(false)
 {
   sf::Font& font = context.fonts->get(Fonts::Main);
-
-  mDescriptionText.setFont(font);
-  mDescriptionText.setString("RankingsState: Press Backspace to return");
-  centerOrigin(mDescriptionText);
-  mDescriptionText.setPosition(context.window->getView().getSize() / 2.f);
 
   createTexts(mTexts, Table);
 
@@ -42,7 +36,6 @@ void RankingsState::draw()
   sf::RenderWindow& window = *getContext().window;
 
   window.setView(mView);
-  window.draw(mDescriptionText);
   FOREACH(const sf::Text& text, mTexts)
     window.draw(text);
 }
@@ -80,8 +73,8 @@ void RankingsState::createTexts(std::vector<sf::Text>& texts,
 {
   texts.clear();
 
-  float xPos = 30.f;
-  float yPos = 30.f;
+  float xPosition = 30.f;
+  float yPosition = 30.f;
 
   sf::Font& font = getContext().fonts->get(Fonts::Main);
   sf::Text text;
@@ -93,15 +86,15 @@ void RankingsState::createTexts(std::vector<sf::Text>& texts,
   {
     // Make a text for the president's name
     text.setString(data[i].name);
-    text.setPosition(xPos, yPos);
+    text.setPosition(xPosition, yPosition);
     texts.push_back(text);
 
     // Make a text for the president's rank
     text.setString(std::to_string(data[i].rank));
-    text.setPosition((xPos + 400.f), yPos);
+    text.setPosition((xPosition + 400.f), yPosition);
     texts.push_back(text);
 
     // Prevent the texts from being displayed over each other
-    yPos += 30.f;
+    yPosition += 30.f;
   }
 }

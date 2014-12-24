@@ -25,7 +25,6 @@ class RankingsState : public State
                                   const std::vector<RankingData>& data);
 
   private:
-    sf::Text                mDescriptionText;
     std::vector<sf::Text>   mTexts;
     sf::View                mView;
 
