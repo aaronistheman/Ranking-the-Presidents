@@ -37,8 +37,12 @@ void RankingsState::draw()
   sf::RenderWindow& window = *getContext().window;
 
   window.setView(mView);
+  sf::FloatRect bounds = getRankingsDisplayBounds();
   FOREACH(const sf::Text& text, mTexts)
-    window.draw(text);
+  {
+    if (bounds.intersects(text.getGlobalBounds()))
+      window.draw(text);
+  }
 }
 
 bool RankingsState::update(sf::Time dt)
@@ -70,7 +74,7 @@ bool RankingsState::handleEvent(const sf::Event& event)
 }
 
 void RankingsState::createTexts(std::vector<sf::Text>& texts, 
-                                const std::vector<RankingData>& data)
+                                const std::vector<RankingData>& data) const
 {
   texts.clear();
 
@@ -98,4 +102,15 @@ void RankingsState::createTexts(std::vector<sf::Text>& texts,
     // Prevent the texts from being displayed over each other
     yPosition += mCharacterSize;
   }
+}
+
+sf::FloatRect RankingsState::getRankingsDisplayBounds() const
+{
+  sf::FloatRect bounds = sf::FloatRect(
+    mView.getCenter() - mView.getSize() / 2.f, mView.getSize());
+
+  bounds.top += 60.f;
+  bounds.height -= 120.f;
+
+  return bounds;
 }
