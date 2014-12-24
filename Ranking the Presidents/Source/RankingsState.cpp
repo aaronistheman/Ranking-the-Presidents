@@ -6,6 +6,7 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include <string>
 #include <iostream>
 
 
@@ -17,6 +18,9 @@ namespace
 RankingsState::RankingsState(StateStack& stack, Context context)
   : State(stack, context)
   , mDescriptionText()
+  , mView(context.window->getDefaultView())
+  , mIsScrollingUp(false)
+  , mIsScrollingDown(false)
 {
   sf::Font& font = context.fonts->get(Fonts::Main);
 
@@ -37,7 +41,7 @@ void RankingsState::draw()
 {
   sf::RenderWindow& window = *getContext().window;
 
-  window.setView(window.getDefaultView());
+  window.setView(mView);
   window.draw(mDescriptionText);
   FOREACH(const sf::Text& text, mTexts)
     window.draw(text);
@@ -45,6 +49,11 @@ void RankingsState::draw()
 
 bool RankingsState::update(sf::Time dt)
 {
+  if (mIsScrollingUp)
+    mView.move(0.f, -10.f);
+  if (mIsScrollingDown)
+    mView.move(0.f, 10.f);
+
   return true;
 }
 
@@ -56,6 +65,12 @@ bool RankingsState::handleEvent(const sf::Event& event)
     requestStackPop();
     requestStackPush(States::Profiles);
   }
+  
+  // Scroll up if desired
+  mIsScrollingUp = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+
+  // Scroll down if desired
+  mIsScrollingDown = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
 
   return true;
 }
@@ -73,14 +88,20 @@ void RankingsState::createTexts(std::vector<sf::Text>& texts,
   text.setFont(font);
   centerOrigin(text);
 
-
   // for (auto itr = data.begin(); itr != data.end(); ++itr)
   for (size_t i = 0; i < 5; ++i)
   {
+    // Make a text for the president's name
     text.setString(data[i].name);
     text.setPosition(xPos, yPos);
-    
     texts.push_back(text);
+
+    // Make a text for the president's rank
+    text.setString(std::to_string(data[i].rank));
+    text.setPosition((xPos + 400.f), yPos);
+    texts.push_back(text);
+
+    // Prevent the texts from being displayed over each other
     yPos += 30.f;
   }
 }

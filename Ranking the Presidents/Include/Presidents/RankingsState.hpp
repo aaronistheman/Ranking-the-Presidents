@@ -5,6 +5,7 @@
 #include <Presidents/State.hpp>
 
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/View.hpp>
 
 
 class RankingsState : public State
@@ -26,6 +27,10 @@ class RankingsState : public State
   private:
     sf::Text                mDescriptionText;
     std::vector<sf::Text>   mTexts;
+    sf::View                mView;
+
+    bool                    mIsScrollingUp;
+    bool                    mIsScrollingDown;
 };
 
 #endif // PRESIDENTS_RANKINGSSTATE_HPP
