@@ -49,7 +49,8 @@ bool RankingsState::update(sf::Time dt)
 
   if (mIsScrollingUp && (mDisplayBounds.top > mUpperRankingsDisplayBound))
     mView.move(0.f, -mScrollSpeed);
-  if (mIsScrollingDown)
+  if (mIsScrollingDown && ((mDisplayBounds.top + mDisplayBounds.height) < 
+    (mUpperRankingsDisplayBound + (Table.size() * mCharacterSize))))
     mView.move(0.f, mScrollSpeed);
 
   return true;
@@ -110,7 +111,7 @@ sf::FloatRect RankingsState::getRankingsDisplayBounds() const
     mView.getCenter() - mView.getSize() / 2.f, mView.getSize());
 
   bounds.top += mUpperRankingsDisplayBound;
-  bounds.height -= mUpperRankingsDisplayBound;
+  bounds.height -= (mUpperRankingsDisplayBound + 10.f);
 
   return bounds;
 }
