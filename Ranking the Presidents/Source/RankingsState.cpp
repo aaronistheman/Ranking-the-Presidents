@@ -25,6 +25,8 @@ RankingsState::RankingsState(StateStack& stack, Context context)
   centerOrigin(mDescriptionText);
   mDescriptionText.setPosition(context.window->getView().getSize() / 2.f);
 
+  createTexts(mTexts, Table);
+
   for (auto itr = Table.begin(); itr != Table.end(); ++itr)
     std::cout << itr->number << ' '
               << itr->name << ' ' 
@@ -56,4 +58,29 @@ bool RankingsState::handleEvent(const sf::Event& event)
   }
 
   return true;
+}
+
+void RankingsState::createTexts(std::vector<sf::Text>& texts, 
+                                const std::vector<RankingData>& data)
+{
+  texts.clear();
+
+  float xPos = 30.f;
+  float yPos = 30.f;
+
+  sf::Font& font = getContext().fonts->get(Fonts::Main);
+  sf::Text text;
+  text.setFont(font);
+  centerOrigin(text);
+
+
+  // for (auto itr = data.begin(); itr != data.end(); ++itr)
+  for (size_t i = 0; i < 5; ++i)
+  {
+    text.setString(data[i].name);
+    text.setPosition(xPos, yPos);
+    
+    texts.push_back(text);
+    yPos += 30.f;
+  }
 }
