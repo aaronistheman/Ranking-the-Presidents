@@ -7,7 +7,6 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include <string>
-#include <iostream>
 
 
 namespace
@@ -21,15 +20,12 @@ RankingsState::RankingsState(StateStack& stack, Context context)
   , mIsScrollingUp(false)
   , mIsScrollingDown(false)
   , mCharacterSize(30.f)
+  , mScrollSpeed(5.f)
+  , mUpperRankingsDisplayBound(100.f)
 {
   sf::Font& font = context.fonts->get(Fonts::Main);
 
   createTexts(mTexts, Table);
-
-  for (auto itr = Table.begin(); itr != Table.end(); ++itr)
-    std::cout << itr->number << ' '
-              << itr->name << ' ' 
-              << itr->rank << '\n';
 }
 
 void RankingsState::draw()
@@ -48,9 +44,9 @@ void RankingsState::draw()
 bool RankingsState::update(sf::Time dt)
 {
   if (mIsScrollingUp)
-    mView.move(0.f, -10.f);
+    mView.move(0.f, -mScrollSpeed);
   if (mIsScrollingDown)
-    mView.move(0.f, 10.f);
+    mView.move(0.f, mScrollSpeed);
 
   return true;
 }
@@ -79,7 +75,7 @@ void RankingsState::createTexts(std::vector<sf::Text>& texts,
   texts.clear();
 
   float xPosition = 30.f;
-  float yPosition = 30.f;
+  float yPosition = mUpperRankingsDisplayBound;
 
   sf::Font& font = getContext().fonts->get(Fonts::Main);
   sf::Text text;
@@ -109,8 +105,8 @@ sf::FloatRect RankingsState::getRankingsDisplayBounds() const
   sf::FloatRect bounds = sf::FloatRect(
     mView.getCenter() - mView.getSize() / 2.f, mView.getSize());
 
-  bounds.top += 60.f;
-  bounds.height -= 120.f;
+  bounds.top += mUpperRankingsDisplayBound;
+  bounds.height -= mUpperRankingsDisplayBound;
 
   return bounds;
 }

@@ -35,6 +35,8 @@ class RankingsState : public State
     bool                    mIsScrollingDown;
 
     float                   mCharacterSize;
+    float                   mScrollSpeed;
+    float                   mUpperRankingsDisplayBound;
 };
 
 #endif // PRESIDENTS_RANKINGSSTATE_HPP
