@@ -81,16 +81,15 @@ void RankingsState::createTexts(std::vector<sf::Text>& texts,
   text.setFont(font);
   centerOrigin(text);
 
-  // for (auto itr = data.begin(); itr != data.end(); ++itr)
-  for (size_t i = 0; i < 5; ++i)
+  for (auto itr = data.begin(); itr != data.end(); ++itr)
   {
     // Make a text for the president's name
-    text.setString(data[i].name);
+    text.setString(itr->name);
     text.setPosition(xPosition, yPosition);
     texts.push_back(text);
 
     // Make a text for the president's rank
-    text.setString(std::to_string(data[i].rank));
+    text.setString(std::to_string(itr->rank));
     text.setPosition((xPosition + 400.f), yPosition);
     texts.push_back(text);
 
