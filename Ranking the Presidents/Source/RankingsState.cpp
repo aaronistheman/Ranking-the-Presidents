@@ -20,6 +20,7 @@ RankingsState::RankingsState(StateStack& stack, Context context)
   , mView(context.window->getDefaultView())
   , mIsScrollingUp(false)
   , mIsScrollingDown(false)
+  , mCharacterSize(30.f)
 {
   sf::Font& font = context.fonts->get(Fonts::Main);
 
@@ -79,6 +80,7 @@ void RankingsState::createTexts(std::vector<sf::Text>& texts,
   sf::Font& font = getContext().fonts->get(Fonts::Main);
   sf::Text text;
   text.setFont(font);
+  text.setCharacterSize(mCharacterSize);
   centerOrigin(text);
 
   for (auto itr = data.begin(); itr != data.end(); ++itr)
@@ -94,6 +96,6 @@ void RankingsState::createTexts(std::vector<sf::Text>& texts,
     texts.push_back(text);
 
     // Prevent the texts from being displayed over each other
-    yPosition += 30.f;
+    yPosition += mCharacterSize;
   }
 }

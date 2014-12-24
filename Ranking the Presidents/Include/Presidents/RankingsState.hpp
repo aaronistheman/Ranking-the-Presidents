@@ -30,6 +30,8 @@ class RankingsState : public State
 
     bool                    mIsScrollingUp;
     bool                    mIsScrollingDown;
+
+    float                   mCharacterSize;
 };
 
 #endif // PRESIDENTS_RANKINGSSTATE_HPP
