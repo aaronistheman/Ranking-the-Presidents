@@ -30,6 +30,7 @@ class RankingsState : public State
   private:
     std::vector<sf::Text>   mTexts;
     sf::View                mView;
+    sf::FloatRect           mDisplayBounds;
 
     bool                    mIsScrollingUp;
     bool                    mIsScrollingDown;

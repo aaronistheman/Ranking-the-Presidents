@@ -17,6 +17,7 @@ namespace
 RankingsState::RankingsState(StateStack& stack, Context context)
   : State(stack, context)
   , mView(context.window->getDefaultView())
+  , mDisplayBounds(getRankingsDisplayBounds())
   , mIsScrollingUp(false)
   , mIsScrollingDown(false)
   , mCharacterSize(30.f)
@@ -33,17 +34,20 @@ void RankingsState::draw()
   sf::RenderWindow& window = *getContext().window;
 
   window.setView(mView);
-  sf::FloatRect bounds = getRankingsDisplayBounds();
+  mDisplayBounds = getRankingsDisplayBounds();
   FOREACH(const sf::Text& text, mTexts)
   {
-    if (bounds.intersects(text.getGlobalBounds()))
+    if (mDisplayBounds.intersects(text.getGlobalBounds()))
       window.draw(text);
   }
 }
 
 bool RankingsState::update(sf::Time dt)
 {
-  if (mIsScrollingUp)
+  // Bounds to prevent scrolling beyond the rankings
+
+
+  if (mIsScrollingUp && (mDisplayBounds.top > mUpperRankingsDisplayBound))
     mView.move(0.f, -mScrollSpeed);
   if (mIsScrollingDown)
     mView.move(0.f, mScrollSpeed);
