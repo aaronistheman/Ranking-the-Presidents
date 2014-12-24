@@ -30,40 +30,40 @@ std::vector<RankingData> initializeRankingData()
       ist >> characterInput;
     }
 
-      characterInput = ' ';
+    characterInput = ' ';
 
-      // Input names until a (closing) quotation is encountered
-      while (characterInput != '"')
+    // Input names until a (closing) quotation is encountered
+    while (characterInput != '"')
+    {
+      ist >> stringInput;
+        
+      // Do not let the closing quotation be treated as part of the
+      // president's last name
+      if (stringInput.back() == '"')
       {
-        ist >> stringInput;
-        
-        // Do not let the closing quotation be treated as part of the
-        // president's last name
-        if (stringInput.back() == '"')
-        {
-          characterInput = '"';
-          stringInput.pop_back();
-        }
-
-        // If a name other than the president's first name is being input,
-        // add a space to the ranking data's name field
-        if (nameCount > 0)
-          itr->name += ' ';
-        
-        // Attach the name to the ranking data's name field
-        itr->name += stringInput;
-        nameCount++;
+        characterInput = '"';
+        stringInput.pop_back();
       }
 
-      // Input rank
-      ist >> integerInput;
-      itr->rank = integerInput;
+      // If a name other than the president's first name is being input,
+      // add a space to the ranking data's name field
+      if (nameCount > 0)
+        itr->name += ' ';
+        
+      // Attach the name to the ranking data's name field
+      itr->name += stringInput;
+      nameCount++;
+    }
 
-      // Reset reading-helper variables
-      characterInput = ' ';
-      stringInput = "";
-      integerInput = 0;
-      nameCount = 0;
+    // Input rank
+    ist >> integerInput;
+    itr->rank = integerInput;
+
+    // Reset reading-helper variables
+    characterInput = ' ';
+    stringInput = "";
+    integerInput = 0;
+    nameCount = 0;
   }
 
   // stop file reading
