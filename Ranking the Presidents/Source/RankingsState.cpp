@@ -1,5 +1,6 @@
 #include <Presidents/RankingsState.hpp>
 #include <Presidents/DataTables.hpp>
+#include <Presidents/Foreach.hpp>
 #include <Presidents/ResourceHolder.hpp>
 #include <Presidents/Utility.hpp>
 
@@ -25,7 +26,9 @@ RankingsState::RankingsState(StateStack& stack, Context context)
   mDescriptionText.setPosition(context.window->getView().getSize() / 2.f);
 
   for (auto itr = Table.begin(); itr != Table.end(); ++itr)
-    std::cout << itr->name << ' ' << itr->rank << '\n';
+    std::cout << itr->number << ' '
+              << itr->name << ' ' 
+              << itr->rank << '\n';
 }
 
 void RankingsState::draw()
@@ -34,6 +37,8 @@ void RankingsState::draw()
 
   window.setView(window.getDefaultView());
   window.draw(mDescriptionText);
+  FOREACH(const sf::Text& text, mTexts)
+    window.draw(text);
 }
 
 bool RankingsState::update(sf::Time dt)

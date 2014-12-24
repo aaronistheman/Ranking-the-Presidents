@@ -18,6 +18,10 @@ std::vector<RankingData> initializeRankingData()
   std::string stringInput = "";
   int integerInput = 0;
 
+  // Keeps track of the number of the president in the sequence of
+  // all ranked presidents (ex: John Adams corresponds to 2)
+  int presidentNumber = 1;
+
   // Holds number of names (first, middle, etc.) that have
   // been input for a specific president
   int nameCount = 0;
@@ -54,6 +58,10 @@ std::vector<RankingData> initializeRankingData()
       itr->name += stringInput;
       nameCount++;
     }
+
+    // Input number and update presidentNumber
+    itr->number = presidentNumber;
+    ++presidentNumber;
 
     // Input rank
     ist >> integerInput;

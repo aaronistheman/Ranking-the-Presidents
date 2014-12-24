@@ -17,7 +17,8 @@ class RankingsState : public State
 
 
   private:
-    sf::Text          mDescriptionText;
+    sf::Text                mDescriptionText;
+    std::vector<sf::Text>   mTexts;
 };
 
 #endif // PRESIDENTS_RANKINGSSTATE_HPP
