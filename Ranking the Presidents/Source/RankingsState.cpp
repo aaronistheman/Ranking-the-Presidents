@@ -22,9 +22,11 @@ RankingsState::RankingsState(StateStack& stack, Context context)
   , mDisplayBounds(getRankingsDisplayBounds())
   , mIsScrollingUp(false)
   , mIsScrollingDown(false)
-  , mCharacterSize(30.f)
   , mScrollSpeed(5.f)
-  , mUpperRankingsDisplayBound(100.f)
+  , mCharacterSize(30.f)
+  , mLeftRankingsDisplayBound(30.f)
+  , mUpperRankingsDisplayBound(130.f)
+  , mDistanceBetweenNameAndRank(400.f)
 {
   sf::Font& font = context.fonts->get(Fonts::Main);
 
@@ -89,7 +91,7 @@ void RankingsState::createLabelTexts(std::vector<sf::Text>& texts) const
 {
   texts.clear();
 
-  float xPosition = 30.f;
+  float xPosition = mLeftRankingsDisplayBound;
   float yPosition = mUpperRankingsDisplayBound - (mCharacterSize * 2);
 
   sf::Font& font = getContext().fonts->get(Fonts::Main);
@@ -107,7 +109,7 @@ void RankingsState::createLabelTexts(std::vector<sf::Text>& texts) const
 
   // Rank label
   text.setString("Rank");
-  text.setPosition((xPosition + 400.f), yPosition);
+  text.setPosition((xPosition + mDistanceBetweenNameAndRank), yPosition);
   texts.push_back(text);
 }
 
@@ -116,7 +118,7 @@ void RankingsState::createRankingsTexts(std::vector<sf::Text>& texts,
 {
   texts.clear();
 
-  float xPosition = 30.f;
+  float xPosition = mLeftRankingsDisplayBound;
   float yPosition = mUpperRankingsDisplayBound;
 
   sf::Font& font = getContext().fonts->get(Fonts::Main);
@@ -134,7 +136,7 @@ void RankingsState::createRankingsTexts(std::vector<sf::Text>& texts,
 
     // Make a text for the president's rank
     text.setString(std::to_string(itr->rank));
-    text.setPosition((xPosition + 400.f), yPosition);
+    text.setPosition((xPosition + mDistanceBetweenNameAndRank), yPosition);
     texts.push_back(text);
 
     // Prevent the texts from being displayed over each other

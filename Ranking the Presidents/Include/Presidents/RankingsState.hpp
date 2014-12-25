@@ -37,10 +37,13 @@ class RankingsState : public State
 
     bool                    mIsScrollingUp;
     bool                    mIsScrollingDown;
-
-    float                   mCharacterSize;
     float                   mScrollSpeed;
+
+    // Details regarding table dimensions
+    float                   mCharacterSize;   // also used as row height
+    float                   mLeftRankingsDisplayBound;
     float                   mUpperRankingsDisplayBound;
+    float                   mDistanceBetweenNameAndRank;
 };
 
 #endif // PRESIDENTS_RANKINGSSTATE_HPP
