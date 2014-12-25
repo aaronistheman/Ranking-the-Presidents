@@ -95,6 +95,9 @@
     <ClInclude Include="Include\Presidents\DataTables.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Presidents\DescriptionData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\Presidents\Utility.inl">

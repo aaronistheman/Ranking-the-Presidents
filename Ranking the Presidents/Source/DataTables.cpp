@@ -3,12 +3,22 @@
 #include <fstream>
 
 
+// This number excludes William Henry Harrison and James Garfield.
+// It does not count Grover Cleveland twice.
+const int numberOfRankings = 41;
+
+std::vector<DescriptionData> initializeDescriptionData()
+{
+  std::vector<DescriptionData> data(numberOfRankings);
+
+  std::string filePath = "DataTables/DescriptionData.txt";
+  std::ifstream ist(filePath.c_str());
+
+  return data;
+}
+
 std::vector<RankingData> initializeRankingData()
 {
-  // This number excludes William Henry Harrison and James Garfield.
-  // It does not count Grover Cleveland twice.
-  const int numberOfRankings = 41;
-
   std::vector<RankingData> data(numberOfRankings);
 
   std::string filePath = "DataTables/RankingData.txt";

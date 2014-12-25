@@ -1,6 +1,7 @@
 #ifndef PRESIDENTS_DESCRIPTIONSSTATE_HPP
 #define PRESIDENTS_DESCRIPTIONSSTATE_HPP
 
+#include <Presidents/DescriptionData.hpp>
 #include <Presidents/State.hpp>
 
 #include <SFML/Graphics/Text.hpp>
