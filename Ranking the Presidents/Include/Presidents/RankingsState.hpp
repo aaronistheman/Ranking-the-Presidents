@@ -26,8 +26,18 @@ class RankingsState : public State
     void              createRankingsTexts(std::vector<sf::Text>& texts, 
                                   const std::vector<RankingData>& data) const;
     
+    std::string       getDisplayOrderAsString() const;
+    
     // Returns the boundaries in which to display the rankings
     sf::FloatRect     getRankingsDisplayBounds() const;
+
+  private:
+    enum DisplayOrder
+    {
+      Chronological,
+      AscendingRank,
+      DescendingRank,
+    };
 
   private:
     std::vector<sf::Text>   mLabelTexts;
@@ -38,6 +48,7 @@ class RankingsState : public State
     bool                    mIsScrollingUp;
     bool                    mIsScrollingDown;
     float                   mScrollSpeed;
+    DisplayOrder            mDisplayOrder;
 
     // Details regarding table dimensions
     float                   mCharacterSize;   // also used as row height

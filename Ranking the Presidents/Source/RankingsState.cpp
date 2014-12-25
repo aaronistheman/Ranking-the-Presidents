@@ -23,10 +23,11 @@ RankingsState::RankingsState(StateStack& stack, Context context)
   , mIsScrollingUp(false)
   , mIsScrollingDown(false)
   , mScrollSpeed(5.f)
+  , mDisplayOrder(Chronological)
   , mCharacterSize(30.f)
   , mLeftRankingsDisplayBound(30.f)
   , mUpperRankingsDisplayBound(130.f)
-  , mDistanceBetweenNameAndRank(400.f)
+  , mDistanceBetweenNameAndRank(600.f)
 {
   sf::Font& font = context.fonts->get(Fonts::Main);
 
@@ -111,6 +112,11 @@ void RankingsState::createLabelTexts(std::vector<sf::Text>& texts) const
   text.setString("Rank");
   text.setPosition((xPosition + mDistanceBetweenNameAndRank), yPosition);
   texts.push_back(text);
+
+  // Display order label
+  text.setString(getDisplayOrderAsString());
+  text.setPosition(getContext().window->getPosition().x, 30.f);
+  texts.push_back(text);
 }
 
 void RankingsState::createRankingsTexts(std::vector<sf::Text>& texts, 
@@ -142,6 +148,21 @@ void RankingsState::createRankingsTexts(std::vector<sf::Text>& texts,
     // Prevent the texts from being displayed over each other
     yPosition += mCharacterSize;
   }
+}
+
+std::string RankingsState::getDisplayOrderAsString() const
+{
+  switch (mDisplayOrder)
+  {
+    case Chronological:
+      return "Chronological";
+    case AscendingRank:
+      return "Ascending by Rank";
+    case DescendingRank:
+      return "Descending by Rank";
+  }
+
+  return "";
 }
 
 sf::FloatRect RankingsState::getRankingsDisplayBounds() const
