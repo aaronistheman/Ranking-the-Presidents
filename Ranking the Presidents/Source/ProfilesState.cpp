@@ -59,7 +59,7 @@ bool ProfilesState::update(sf::Time dt)
 
 bool ProfilesState::handleEvent(const sf::Event& event)
 {
-  if (event.type != sf::Event::KeyPressed)
+  if (event.type != sf::Event::KeyReleased)
     return false;
 
   if (event.key.code == sf::Keyboard::Return)

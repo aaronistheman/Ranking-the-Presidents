@@ -17,7 +17,9 @@ namespace
 RankingsState::RankingsState(StateStack& stack, Context context)
   : State(stack, context)
   , mLabelTexts()
-  , mRankingsTexts()
+  , mChronologicalRankingsTexts()
+  , mAscendingRankingsTexts()
+  , mDescendingRankingsTexts()
   , mView(context.window->getDefaultView())
   , mDisplayBounds(getRankingsDisplayBounds())
   , mIsScrollingUp(false)
@@ -32,7 +34,26 @@ RankingsState::RankingsState(StateStack& stack, Context context)
   sf::Font& font = context.fonts->get(Fonts::Main);
 
   updateLabelTexts(mLabelTexts);
-  updateRankingsTexts(mRankingsTexts, Table);
+
+  std::vector<RankingData> table = Table;
+
+  updateRankingsTexts(mChronologicalRankingsTexts, table);
+
+  // Sort data in ascending order by rank
+  std::sort(table.begin(), table.end(), 
+    [] (RankingData a, RankingData b)
+	{
+		return a.rank < b.rank;
+	});
+  updateRankingsTexts(mAscendingRankingsTexts, table);
+
+  // Sort data in descending order by rank
+  std::sort(table.begin(), table.end(), 
+    [] (RankingData a, RankingData b)
+	{
+		return a.rank > b.rank;
+	});
+  updateRankingsTexts(mDescendingRankingsTexts, table);
 }
 
 void RankingsState::draw()
@@ -48,8 +69,23 @@ void RankingsState::draw()
   window.setView(mView);
   mDisplayBounds = getRankingsDisplayBounds();
 
+  // Determine which vector to draw with
+  std::vector<sf::Text>* textsToDraw;
+  switch (mDisplayOrder)
+  {
+    case Chronological:
+      textsToDraw = &mChronologicalRankingsTexts;
+      break;
+    case AscendingRank:
+      textsToDraw = &mAscendingRankingsTexts;
+      break;
+    case DescendingRank:
+      textsToDraw = &mDescendingRankingsTexts;
+      break;
+  }
+
   // Draw the rankings
-  FOREACH(const sf::Text& text, mRankingsTexts)
+  FOREACH(const sf::Text& text, *textsToDraw)
   {
     if (mDisplayBounds.intersects(text.getGlobalBounds()))
       window.draw(text);
@@ -72,7 +108,7 @@ bool RankingsState::update(sf::Time dt)
 
 bool RankingsState::handleEvent(const sf::Event& event)
 {
-  if (event.type == sf::Event::KeyReleased)
+  if (event.type == sf::Event::KeyPressed)
   {
     if (event.key.code == sf::Keyboard::BackSpace)
     {

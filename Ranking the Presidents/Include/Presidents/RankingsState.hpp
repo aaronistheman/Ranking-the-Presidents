@@ -43,7 +43,9 @@ class RankingsState : public State
 
   private:
     std::vector<sf::Text>   mLabelTexts;
-    std::vector<sf::Text>   mRankingsTexts;
+    std::vector<sf::Text>   mChronologicalRankingsTexts;
+    std::vector<sf::Text>   mAscendingRankingsTexts;
+    std::vector<sf::Text>   mDescendingRankingsTexts;
     sf::View                mView;
     sf::FloatRect           mDisplayBounds;
 
