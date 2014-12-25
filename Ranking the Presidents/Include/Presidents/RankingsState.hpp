@@ -20,13 +20,15 @@ class RankingsState : public State
 
   private:
     // Fills argument texts with the labels for the rankings table
-    void              createLabelTexts(std::vector<sf::Text>& texts) const;
+    void              updateLabelTexts(std::vector<sf::Text>& texts) const;
     
     // Fills argument texts with the sf::Text objects to display the rankings
-    void              createRankingsTexts(std::vector<sf::Text>& texts, 
+    void              updateRankingsTexts(std::vector<sf::Text>& texts, 
                                   const std::vector<RankingData>& data) const;
     
     std::string       getDisplayOrderAsString() const;
+
+    void              switchDisplayOrder();
     
     // Returns the boundaries in which to display the rankings
     sf::FloatRect     getRankingsDisplayBounds() const;

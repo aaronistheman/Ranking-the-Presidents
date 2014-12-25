@@ -31,8 +31,8 @@ RankingsState::RankingsState(StateStack& stack, Context context)
 {
   sf::Font& font = context.fonts->get(Fonts::Main);
 
-  createLabelTexts(mLabelTexts);
-  createRankingsTexts(mRankingsTexts, Table);
+  updateLabelTexts(mLabelTexts);
+  updateRankingsTexts(mRankingsTexts, Table);
 }
 
 void RankingsState::draw()
@@ -72,11 +72,17 @@ bool RankingsState::update(sf::Time dt)
 
 bool RankingsState::handleEvent(const sf::Event& event)
 {
-  if (event.type == sf::Event::KeyReleased &&
-      event.key.code == sf::Keyboard::BackSpace)
+  if (event.type == sf::Event::KeyReleased)
   {
-    requestStackPop();
-    requestStackPush(States::Profiles);
+    if (event.key.code == sf::Keyboard::BackSpace)
+    {
+      requestStackPop();
+      requestStackPush(States::Profiles);
+    }
+    if (event.key.code == sf::Keyboard::Return)
+    {
+      switchDisplayOrder();
+    }
   }
   
   // Scroll up if desired
@@ -88,7 +94,7 @@ bool RankingsState::handleEvent(const sf::Event& event)
   return true;
 }
 
-void RankingsState::createLabelTexts(std::vector<sf::Text>& texts) const
+void RankingsState::updateLabelTexts(std::vector<sf::Text>& texts) const
 {
   texts.clear();
 
@@ -101,7 +107,6 @@ void RankingsState::createLabelTexts(std::vector<sf::Text>& texts) const
   text.setCharacterSize(mCharacterSize);
   text.setColor(sf::Color::Red);
   text.setStyle(sf::Text::Bold);
-  centerOrigin(text);
   
   // Name label
   text.setString("Name");
@@ -115,11 +120,12 @@ void RankingsState::createLabelTexts(std::vector<sf::Text>& texts) const
 
   // Display order label
   text.setString(getDisplayOrderAsString());
-  text.setPosition(getContext().window->getPosition().x, 30.f);
+  centerOrigin(text);
+  text.setPosition((getContext().window->getSize().x / 2.f), 30.f);
   texts.push_back(text);
 }
 
-void RankingsState::createRankingsTexts(std::vector<sf::Text>& texts, 
+void RankingsState::updateRankingsTexts(std::vector<sf::Text>& texts, 
                                 const std::vector<RankingData>& data) const
 {
   texts.clear();
@@ -131,7 +137,6 @@ void RankingsState::createRankingsTexts(std::vector<sf::Text>& texts,
   sf::Text text;
   text.setFont(font);
   text.setCharacterSize(mCharacterSize);
-  centerOrigin(text);
 
   for (auto itr = data.begin(); itr != data.end(); ++itr)
   {
@@ -156,13 +161,35 @@ std::string RankingsState::getDisplayOrderAsString() const
   {
     case Chronological:
       return "Chronological";
+      break;
     case AscendingRank:
       return "Ascending by Rank";
+      break;
     case DescendingRank:
       return "Descending by Rank";
+      break;
   }
 
   return "";
+}
+
+void RankingsState::switchDisplayOrder()
+{
+  switch (mDisplayOrder)
+  {
+    case Chronological:
+      mDisplayOrder = AscendingRank;
+      break;
+    case AscendingRank:
+      mDisplayOrder = DescendingRank;
+      break;
+    case DescendingRank:
+      mDisplayOrder = Chronological;
+      break;
+  }
+  
+  // Update the label for the display order
+  updateLabelTexts(mLabelTexts);
 }
 
 sf::FloatRect RankingsState::getRankingsDisplayBounds() const
