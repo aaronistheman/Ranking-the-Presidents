@@ -16,6 +16,8 @@ namespace
 
 RankingsState::RankingsState(StateStack& stack, Context context)
   : State(stack, context)
+  , mLabelTexts()
+  , mRankingsTexts()
   , mView(context.window->getDefaultView())
   , mDisplayBounds(getRankingsDisplayBounds())
   , mIsScrollingUp(false)
@@ -26,16 +28,25 @@ RankingsState::RankingsState(StateStack& stack, Context context)
 {
   sf::Font& font = context.fonts->get(Fonts::Main);
 
-  createTexts(mTexts, Table);
+  createLabelTexts(mLabelTexts);
+  createRankingsTexts(mRankingsTexts, Table);
 }
 
 void RankingsState::draw()
 {
   sf::RenderWindow& window = *getContext().window;
 
+  // Use default view when drawing the labels
+  window.setView(window.getDefaultView());
+  FOREACH(const sf::Text& text, mLabelTexts)
+    window.draw(text);
+
+  // Update the view and display bounds
   window.setView(mView);
   mDisplayBounds = getRankingsDisplayBounds();
-  FOREACH(const sf::Text& text, mTexts)
+
+  // Draw the rankings
+  FOREACH(const sf::Text& text, mRankingsTexts)
   {
     if (mDisplayBounds.intersects(text.getGlobalBounds()))
       window.draw(text);
@@ -74,7 +85,33 @@ bool RankingsState::handleEvent(const sf::Event& event)
   return true;
 }
 
-void RankingsState::createTexts(std::vector<sf::Text>& texts, 
+void RankingsState::createLabelTexts(std::vector<sf::Text>& texts) const
+{
+  texts.clear();
+
+  float xPosition = 30.f;
+  float yPosition = mUpperRankingsDisplayBound - (mCharacterSize * 2);
+
+  sf::Font& font = getContext().fonts->get(Fonts::Main);
+  sf::Text text;
+  text.setFont(font);
+  text.setCharacterSize(mCharacterSize);
+  text.setColor(sf::Color::Red);
+  text.setStyle(sf::Text::Bold);
+  centerOrigin(text);
+  
+  // Name label
+  text.setString("Name");
+  text.setPosition(xPosition, yPosition);
+  texts.push_back(text);
+
+  // Rank label
+  text.setString("Rank");
+  text.setPosition((xPosition + 400.f), yPosition);
+  texts.push_back(text);
+}
+
+void RankingsState::createRankingsTexts(std::vector<sf::Text>& texts, 
                                 const std::vector<RankingData>& data) const
 {
   texts.clear();
