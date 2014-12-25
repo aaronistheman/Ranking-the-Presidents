@@ -44,13 +44,13 @@ void RankingsState::draw()
 
 bool RankingsState::update(sf::Time dt)
 {
-  // Bounds to prevent scrolling beyond the rankings
-
-
+  float lowerRankingsDisplayBound = 
+    mUpperRankingsDisplayBound + (Table.size() * mCharacterSize);
+  
   if (mIsScrollingUp && (mDisplayBounds.top > mUpperRankingsDisplayBound))
     mView.move(0.f, -mScrollSpeed);
   if (mIsScrollingDown && ((mDisplayBounds.top + mDisplayBounds.height) < 
-    (mUpperRankingsDisplayBound + (Table.size() * mCharacterSize))))
+    lowerRankingsDisplayBound))
     mView.move(0.f, mScrollSpeed);
 
   return true;
