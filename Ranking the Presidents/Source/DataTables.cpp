@@ -65,35 +65,20 @@ std::vector<RankingData> initializeRankingData()
   std::string filePath = "DataTables/RankingData.txt";
   std::ifstream ist(filePath.c_str());
 
-  char characterInput = ' ';
-  std::string stringInput = "";
-  int integerInput = 0;
-
   // Keeps track of the number of the president in the sequence of
   // all ranked presidents (ex: John Adams corresponds to 2)
   int presidentNumber = 1;
 
-  // Holds number of names (first, middle, etc.) that have
-  // been input for a specific president
-  int nameCount = 0;
-
   for (auto itr = data.begin(); itr != data.end() && !ist.eof(); ++itr)
   {
-    readName(*itr, ist);
-
     // Input number and update presidentNumber
     itr->number = presidentNumber;
     ++presidentNumber;
 
-    // Input rank
-    ist >> integerInput;
-    itr->rank = integerInput;
+    readName(*itr, ist);
 
-    // Reset reading-helper variables
-    characterInput = ' ';
-    stringInput = "";
-    integerInput = 0;
-    nameCount = 0;
+    // Read the president's rank
+    ist >> itr->rank;
   }
 
   // stop file reading

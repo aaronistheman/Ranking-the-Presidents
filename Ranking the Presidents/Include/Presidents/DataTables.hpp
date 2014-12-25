@@ -6,9 +6,8 @@
 
 #include <vector>
 
-
+// Each of these functions closes the file it reads from
 std::vector<DescriptionData> initializeDescriptionData();
-
 std::vector<RankingData> initializeRankingData();
 
 #endif // PRESIDENTS_DATATABLES_HPP
