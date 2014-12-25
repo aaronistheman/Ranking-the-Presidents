@@ -17,6 +17,47 @@ std::vector<DescriptionData> initializeDescriptionData()
   return data;
 }
 
+void readName(RankingData& rankingData, std::ifstream& ist)
+{
+  char characterInput = ' ';
+  std::string stringInput = "";
+
+  // Holds number of names (first, middle, etc.) that have
+  // been input for a specific president
+  int nameCount = 0;
+  
+  // Read until a (opening) quotation is encountered
+  while (characterInput != '"')
+  {
+    ist >> characterInput;
+  }
+
+  characterInput = ' ';
+
+  // Input names until a (closing) quotation is encountered
+  while (characterInput != '"')
+  {
+    ist >> stringInput;
+        
+    // Do not let the closing quotation be treated as part of the
+    // president's last name
+    if (stringInput.back() == '"')
+    {
+      characterInput = '"';
+      stringInput.pop_back();
+    }
+
+    // If a name other than the president's first name is being input,
+    // add a space to the ranking data's name field
+    if (nameCount > 0)
+      rankingData.name += ' ';
+        
+    // Attach the name to the ranking data's name field
+    rankingData.name += stringInput;
+    nameCount++;
+  }
+}
+
 std::vector<RankingData> initializeRankingData()
 {
   std::vector<RankingData> data(numberOfRankings);
@@ -38,36 +79,7 @@ std::vector<RankingData> initializeRankingData()
 
   for (auto itr = data.begin(); itr != data.end() && !ist.eof(); ++itr)
   {
-    // Read until a (opening) quotation is encountered
-    while (characterInput != '"')
-    {
-      ist >> characterInput;
-    }
-
-    characterInput = ' ';
-
-    // Input names until a (closing) quotation is encountered
-    while (characterInput != '"')
-    {
-      ist >> stringInput;
-        
-      // Do not let the closing quotation be treated as part of the
-      // president's last name
-      if (stringInput.back() == '"')
-      {
-        characterInput = '"';
-        stringInput.pop_back();
-      }
-
-      // If a name other than the president's first name is being input,
-      // add a space to the ranking data's name field
-      if (nameCount > 0)
-        itr->name += ' ';
-        
-      // Attach the name to the ranking data's name field
-      itr->name += stringInput;
-      nameCount++;
-    }
+    readName(*itr, ist);
 
     // Input number and update presidentNumber
     itr->number = presidentNumber;
