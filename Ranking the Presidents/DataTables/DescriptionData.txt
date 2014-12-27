@@ -1,0 +1,41 @@
+"George Washington" 	7
+"John Adams" 		22
+"Thomas Jefferson" 	26
+"James Madison" 	28
+"James Monroe" 		25
+"John Quincy Adams" 	12
+"Andrew Jackson" 	27
+"Martin Van Buren" 	3
+"John Tyler" 		1
+"James Polk" 		38
+"Zachary Taylor" 	13
+"Millard Fillmore"	14
+"Franklin Pierce"	24
+"James Buchanan"	23
+"Abraham Lincoln"	29
+"Andrew Johnson"	17
+"Ulysses Grant"		19
+"Rutherford Hayes"	4
+"Chester Arthur"	5
+"Grover Cleveland"	2
+"Benjamin Harrison"	15
+"William McKinley"	39
+"Theodore Roosevelt"	21
+"William Howard Taft"	20
+"Woodrow Wilson"	41
+"Warren Harding"	6
+"Calvin Coolidge"	10
+"Herbert Hoover"	18
+"Franklin Roosevelt"	31
+"Harry S Truman"	40
+"Dwight Eisenhower"	9
+"John F. Kennedy"	36
+"Lyndon B. Johnson"	32
+"Richard Nixon"		30
+"Gerald Ford"		16
+"Jimmy Carter"		8
+"Ronald Reagan"		35
+"George H.W. Bush"	33
+"William J. Clinton"	11
+"George W. Bush"	37
+"Barack Obama" 		34

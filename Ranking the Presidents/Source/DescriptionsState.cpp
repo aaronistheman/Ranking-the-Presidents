@@ -1,9 +1,17 @@
 #include <Presidents/DescriptionsState.hpp>
+#include <Presidents/DataTables.hpp>
 #include <Presidents/ResourceHolder.hpp>
 #include <Presidents/Utility.hpp>
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include <iostream>
+
+
+namespace
+{
+  const std::vector<DescriptionData> Table = initializeDescriptionData();
+}
 
 DescriptionsState::DescriptionsState(StateStack& stack, Context context)
   : State(stack, context)
@@ -15,6 +23,9 @@ DescriptionsState::DescriptionsState(StateStack& stack, Context context)
   mDescriptionText.setString("DescriptionsState: Press Backspace to return");
   centerOrigin(mDescriptionText);
   mDescriptionText.setPosition(context.window->getView().getSize() / 2.f);
+
+  for (auto itr = Table.begin(); itr != Table.end(); ++itr)
+    std::cout << itr->number << ' ' << itr->name << ' ' << itr->rank << '\n';
 }
 
 void DescriptionsState::draw()
