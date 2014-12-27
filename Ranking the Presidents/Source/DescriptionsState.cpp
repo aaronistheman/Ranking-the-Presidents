@@ -25,7 +25,11 @@ DescriptionsState::DescriptionsState(StateStack& stack, Context context)
   mDescriptionText.setPosition(context.window->getView().getSize() / 2.f);
 
   for (auto itr = Table.begin(); itr != Table.end(); ++itr)
-    std::cout << itr->number << ' ' << itr->name << ' ' << itr->rank << '\n';
+    std::cout << "Number: " << itr->number << '\n' 
+              << "Name: " << itr->name << '\n' 
+              << "Rank: " << itr->rank << '\n'
+              << "Category: " << itr->category << '\n'
+              << '\n';
 }
 
 void DescriptionsState::draw()

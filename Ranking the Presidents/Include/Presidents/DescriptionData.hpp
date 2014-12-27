@@ -8,9 +8,19 @@
 // For use in DescriptionsState.
 struct DescriptionData
 {
+  enum Category 
+  {
+    Excellent,
+    Good,
+    Average,
+    Poor,
+    Bad
+  };
+
   int           number;
   std::string   name;
   int           rank;
+  Category      category;
 };
 
 #endif // PRESIDENTS_DESCRIPTIONDATA_HPP
