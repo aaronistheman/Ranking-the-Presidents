@@ -1,7 +1,7 @@
 #ifndef PRESIDENTS_RANKINGSSTATE_HPP
 #define PRESIDENTS_RANKINGSSTATE_HPP
 
-#include <Presidents/DescriptionData.hpp>
+#include <Presidents/PresidentData.hpp>
 #include <Presidents/State.hpp>
 
 #include <SFML/Graphics/Text.hpp>
@@ -24,7 +24,7 @@ class RankingsState : public State
     
     // Fills argument texts with the sf::Text objects to display the rankings
     void              updateRankingsTexts(std::vector<sf::Text>& texts, 
-                                  const std::vector<DescriptionData>& data) const;
+                                  const std::vector<PresidentData>& data) const;
     
     std::string       getDisplayOrderAsString() const;
 

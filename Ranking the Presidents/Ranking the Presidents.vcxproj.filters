@@ -48,7 +48,7 @@
     <ClCompile Include="Source\DataTables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\DescriptionData.cpp">
+    <ClCompile Include="Source\PresidentData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -95,7 +95,7 @@
     <ClInclude Include="Include\Presidents\DataTables.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Presidents\DescriptionData.hpp">
+    <ClInclude Include="Include\Presidents\PresidentData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

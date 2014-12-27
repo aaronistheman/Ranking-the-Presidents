@@ -1,12 +1,10 @@
-#ifndef PRESIDENTS_DESCRIPTIONDATA_HPP
-#define PRESIDENTS_DESCRIPTIONDATA_HPP
+#ifndef PRESIDENTS_PRESIDENTDATA_HPP
+#define PRESIDENTS_PRESIDENTDATA_HPP
 
 #include <string>
 
 
-// Contains the description data for a president.
-// For use in DescriptionsState.
-struct DescriptionData
+struct PresidentData
 {
   enum Category 
   {
@@ -25,6 +23,6 @@ struct DescriptionData
 
 // For reading a president's category from the file
 std::ifstream& operator>>(std::ifstream& ist, 
-                          DescriptionData::Category& category);
+                          PresidentData::Category& category);
 
 #endif // PRESIDENTS_DESCRIPTIONDATA_HPP

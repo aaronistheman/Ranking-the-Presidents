@@ -1,25 +1,25 @@
-#include <Presidents/DescriptionData.hpp>
+#include <Presidents/PresidentData.hpp>
 
 #include <cassert>
 #include <fstream>
 
 
 std::ifstream& operator>>(std::ifstream& ist, 
-                          DescriptionData::Category& category)
+                          PresidentData::Category& category)
 {
   std::string s = "";
   if (ist >> s)
   {
     if (s == "Excellent")
-      category = DescriptionData::Excellent;
+      category = PresidentData::Excellent;
     else if (s == "Good")
-      category = DescriptionData::Good;
+      category = PresidentData::Good;
     else if (s == "Average")
-      category = DescriptionData::Average;
+      category = PresidentData::Average;
     else if (s == "Poor")
-      category = DescriptionData::Poor;
+      category = PresidentData::Poor;
     else if (s == "Bad")
-      category = DescriptionData::Bad;
+      category = PresidentData::Bad;
 
     else
     {

@@ -11,7 +11,7 @@
 
 namespace
 {
-  const std::vector<DescriptionData> Table = initializeDescriptionData();
+  const std::vector<PresidentData> Table = initializeDescriptionData();
 }
 
 RankingsState::RankingsState(StateStack& stack, Context context)
@@ -35,13 +35,13 @@ RankingsState::RankingsState(StateStack& stack, Context context)
 
   updateLabelTexts(mLabelTexts);
 
-  std::vector<DescriptionData> table = Table;
+  std::vector<PresidentData> table = Table;
 
   updateRankingsTexts(mChronologicalRankingsTexts, table);
 
   // Sort data in ascending order by rank
   std::sort(table.begin(), table.end(), 
-    [] (DescriptionData a, DescriptionData b)
+    [] (PresidentData a, PresidentData b)
 	{
 		return a.rank < b.rank;
 	});
@@ -49,7 +49,7 @@ RankingsState::RankingsState(StateStack& stack, Context context)
 
   // Sort data in descending order by rank
   std::sort(table.begin(), table.end(), 
-    [] (DescriptionData a, DescriptionData b)
+    [] (PresidentData a, PresidentData b)
 	{
 		return a.rank > b.rank;
 	});
@@ -162,7 +162,7 @@ void RankingsState::updateLabelTexts(std::vector<sf::Text>& texts) const
 }
 
 void RankingsState::updateRankingsTexts(std::vector<sf::Text>& texts, 
-                                const std::vector<DescriptionData>& data) const
+                                const std::vector<PresidentData>& data) const
 {
   texts.clear();
 

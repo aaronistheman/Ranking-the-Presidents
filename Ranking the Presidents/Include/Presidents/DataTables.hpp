@@ -1,12 +1,12 @@
 #ifndef PRESIDENTS_DATATABLES_HPP
 #define PRESIDENTS_DATATABLES_HPP
 
-#include <Presidents/DescriptionData.hpp>
+#include <Presidents/PresidentData.hpp>
 
 #include <vector>
 
 
 // Closes the file it reads from
-std::vector<DescriptionData> initializeDescriptionData();
+std::vector<PresidentData> initializeDescriptionData();
 
 #endif // PRESIDENTS_DATATABLES_HPP

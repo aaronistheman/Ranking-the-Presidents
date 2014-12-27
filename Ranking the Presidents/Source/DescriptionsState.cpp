@@ -10,7 +10,7 @@
 
 namespace
 {
-  const std::vector<DescriptionData> Table = initializeDescriptionData();
+  const std::vector<PresidentData> Table = initializeDescriptionData();
 }
 
 DescriptionsState::DescriptionsState(StateStack& stack, Context context)
