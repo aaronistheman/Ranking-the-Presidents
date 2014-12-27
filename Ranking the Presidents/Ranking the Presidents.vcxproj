@@ -92,7 +92,6 @@
     <ClInclude Include="Include\Presidents\Foreach.hpp" />
     <ClInclude Include="Include\Presidents\MainMenuState.hpp" />
     <ClInclude Include="Include\Presidents\ProfilesState.hpp" />
-    <ClInclude Include="Include\Presidents\RankingData.hpp" />
     <ClInclude Include="Include\Presidents\RankingsState.hpp" />
     <ClInclude Include="Include\Presidents\ResourceHolder.hpp" />
     <ClInclude Include="Include\Presidents\ResourceIdentifiers.hpp" />

@@ -92,9 +92,6 @@
     <ClInclude Include="Include\Presidents\RankingsState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Presidents\RankingData.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Presidents\DataTables.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
