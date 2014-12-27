@@ -73,6 +73,9 @@ std::vector<PresidentData> initializeDescriptionData()
 
     // Read the president's category
     ist >> itr->category;
+
+    // Read the president's party
+    ist >> itr->party;
   }
 
   // stop file reading

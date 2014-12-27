@@ -29,6 +29,7 @@ DescriptionsState::DescriptionsState(StateStack& stack, Context context)
               << "Name: " << itr->name << '\n' 
               << "Rank: " << itr->rank << '\n'
               << "Category: " << itr->category << '\n'
+              << "Party: " << itr->party << '\n'
               << '\n';
 }
 

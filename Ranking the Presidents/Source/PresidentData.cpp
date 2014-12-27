@@ -31,3 +31,28 @@ std::ifstream& operator>>(std::ifstream& ist,
 
   return ist;
 }
+
+std::ifstream& operator>>(std::ifstream& ist, PresidentData::Party& party)
+{
+  std::string s = "";
+  if (ist >> s)
+  {
+    if (s == "Federalist")
+      party = PresidentData::Federalist;
+    else if (s == "Democrat")
+      party = PresidentData::Democrat;
+    else if (s == "Whig")
+      party = PresidentData::Whig;
+    else if (s == "Republican")
+      party = PresidentData::Republican;
+
+    else
+    {
+      // Terminate because something went wrong with the file and that
+      // data could be crucial to the program
+      assert(false);
+    }
+  }
+
+  return ist;
+}

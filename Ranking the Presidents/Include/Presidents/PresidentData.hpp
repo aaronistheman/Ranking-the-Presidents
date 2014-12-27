@@ -6,7 +6,7 @@
 
 struct PresidentData
 {
-  enum Category 
+  enum Category
   {
     Excellent,
     Good,
@@ -15,14 +15,26 @@ struct PresidentData
     Bad
   };
 
+  enum Party
+  {
+    Federalist,
+    Democrat,
+    Whig,
+    Republican
+  };
+
   int           number;
   std::string   name;
   int           rank;
   Category      category;
+  Party         party;
 };
 
 // For reading a president's category from the file
 std::ifstream& operator>>(std::ifstream& ist, 
                           PresidentData::Category& category);
+
+// For reading a president's party from the file
+std::ifstream& operator>>(std::ifstream& ist, PresidentData::Party& party);
 
 #endif // PRESIDENTS_DESCRIPTIONDATA_HPP
