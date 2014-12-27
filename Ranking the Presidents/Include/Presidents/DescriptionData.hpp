@@ -23,4 +23,8 @@ struct DescriptionData
   Category      category;
 };
 
+// For reading a president's category from the file
+std::ifstream& operator>>(std::ifstream& ist, 
+                          DescriptionData::Category& category);
+
 #endif // PRESIDENTS_DESCRIPTIONDATA_HPP

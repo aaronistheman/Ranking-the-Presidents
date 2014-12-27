@@ -49,27 +49,6 @@ void readName(DescriptionData& descriptionData, std::ifstream& ist)
   }
 }
 
-DescriptionData::Category convertStringToCategory(const std::string& s)
-{
-  if (s == "Excellent")
-    return DescriptionData::Excellent;
-  else if (s == "Good")
-    return DescriptionData::Good;
-  else if (s == "Average")
-    return DescriptionData::Average;
-  else if (s == "Poor")
-    return DescriptionData::Poor;
-  else if (s == "Bad")
-    return DescriptionData::Bad;
-
-  else
-  {
-    // Terminate because something went wrong with the file and that
-    // data could be crucial to the program
-    assert(false);
-  }
-}
-
 std::vector<DescriptionData> initializeDescriptionData()
 {
   std::vector<DescriptionData> data(numberOfRankings);
@@ -93,9 +72,7 @@ std::vector<DescriptionData> initializeDescriptionData()
     ist >> itr->rank;
 
     // Read the president's category
-    std::string category = "";
-    ist >> category;
-    itr->category = convertStringToCategory(category);
+    ist >> itr->category;
   }
 
   // stop file reading
