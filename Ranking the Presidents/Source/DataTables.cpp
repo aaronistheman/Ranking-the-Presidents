@@ -2,13 +2,12 @@
 
 #include <cassert>
 #include <fstream>
-#include <iostream>
 
 
 // This number excludes William Henry Harrison and James Garfield.
 // It does not count Grover Cleveland twice.
 // const int numberOfRankings = 41;
-const int numberOfRankings = 3;
+const int numberOfRankings = 4;
 
 void readName(PresidentData& presidentData, std::ifstream& ist)
 {
@@ -81,7 +80,11 @@ void readYearsInOffice(PresidentData& presidentData, std::ifstream& ist)
 
     // Input ending year
     ist >> yearsInOfficePair.termEnd;
-    presidentData.yearsInOfficePairs.push_back(yearsInOfficePair);
+
+    // Add the pair only if the president's data has less than two pairs
+    // (which is the maximum)
+    if (presidentData.yearsInOfficePairs.size() < 2)
+      presidentData.yearsInOfficePairs.push_back(yearsInOfficePair);
 
     // If a quotation is inputted, the loop will end;
     // If a semi-colon is inputted, another pair of years will
@@ -110,9 +113,7 @@ std::vector<PresidentData> initializeDescriptionData()
     readName(presidentData, ist);
 
     // Read the president's rank
-    std::cout << "Before reading, rank: " << presidentData.rank << '\n';
     ist >> presidentData.rank;
-    std::cout << "After reading, rank: " << presidentData.rank << '\n';
 
     // Read the president's category
     ist >> presidentData.category;

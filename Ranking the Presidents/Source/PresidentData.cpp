@@ -11,6 +11,7 @@ void PresidentData::Reset()
   rank = 0;
   category = PresidentData::NoCategory;
   party = PresidentData::NoParty;
+  yearsInOfficePairs.clear();
 }
 
 std::ifstream& operator>>(std::ifstream& ist, 
