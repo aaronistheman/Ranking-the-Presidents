@@ -31,7 +31,7 @@ DescriptionsState::DescriptionsState(StateStack& stack, Context context)
               << "Rank: " << itr->rank << '\n'
               << "Category: " << itr->category << '\n'
               << "Party: " << itr->party << '\n';
-    for (size_t i = 0; itr->termBeginning.size(); ++i)
+    for (size_t i = 0; i < itr->termBeginning.size(); ++i)
       std::cout << "Term Beginning: " << itr->termBeginning[i] << '\n'
                 << "Term End: " << itr->termEnd[i] << '\n';
     std::cout << '\n';
