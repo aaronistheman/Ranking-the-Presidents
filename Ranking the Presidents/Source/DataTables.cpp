@@ -2,7 +2,6 @@
 
 #include <cassert>
 #include <fstream>
-#include <iostream>
 
 
 // This number excludes William Henry Harrison and James Garfield.
@@ -18,15 +17,16 @@ void readName(PresidentData& presidentData, std::ifstream& ist)
   // been input for a specific president
   int nameCount = 0;
   
-  // Read until a (opening) quotation is encountered
-  while (characterInput != '"' && !ist.eof())
-  {
-    ist >> characterInput;
-  }
+  // Input a (opening) quotation
+  ist >> characterInput;
+  if (ist.eof())
+    return;
+  assert(characterInput == '"');
 
   characterInput = ' ';
 
-  // Input names until a (closing) quotation is encountered
+  // Input names until a (closing) quotation is encountered;
+  // Skip if end of file
   while (characterInput != '"' && !ist.eof())
   {
     ist >> stringInput;
@@ -55,16 +55,17 @@ void readYearsInOffice(PresidentData& presidentData, std::ifstream& ist)
   char characterInput = ' ';
   int integerInput = 0;
 
-  // Read until a (opening) quotation is encountered
-  while (characterInput != '"' && !ist.eof())
-  {
-    ist >> characterInput;
-  }
+  // Input a (opening) quotation
+  ist >> characterInput;
+  if (ist.eof())
+    return;
+  assert(characterInput == '"');
 
   characterInput = ' ';
 
   // Input pairs of beginning and ending years in office until a
-  // (closing) quotation is encountered
+  // (closing) quotation is encountered;
+  // Skip if end of file
   while (characterInput != '"' && !ist.eof())
   {
     // Input beginning year
@@ -78,13 +79,11 @@ void readYearsInOffice(PresidentData& presidentData, std::ifstream& ist)
     // Input ending year
     ist >> integerInput;
     presidentData.termEnd.push_back(integerInput);
-    std::cout << "Ending year: " << integerInput << '\n';
 
     // If a quotation is inputted, the loop will end;
     // If a blank space is inputted, another pair of years will
     // be inputted
     ist >> characterInput;
-    std::cout << "Last character input: " << characterInput << '\n';
     assert(characterInput == ' ' || characterInput == '"');
   }
 }
@@ -102,8 +101,6 @@ std::vector<PresidentData> initializeDescriptionData()
 
   for (auto itr = data.begin(); itr != data.end() && !ist.eof(); ++itr)
   {
-    std::cout << "ist.eof(): " << ist.eof() << '\n';
-    
     // Input number and update presidentNumber
     itr->number = presidentNumber;
     ++presidentNumber;
