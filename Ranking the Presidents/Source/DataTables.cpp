@@ -7,7 +7,7 @@
 // This number excludes William Henry Harrison and James Garfield.
 // It does not count Grover Cleveland twice.
 // const int numberOfRankings = 41;
-const int numberOfRankings = 4;
+const int numberOfRankings = 1;
 
 void readName(PresidentData& presidentData, std::ifstream& ist)
 {
@@ -103,6 +103,7 @@ std::vector<PresidentData> initializeDescriptionData()
 
   std::string filePath = "DataTables/PresidentData.txt";
   std::ifstream ist(filePath.c_str());
+  assert(!ist.fail());  // check that file reading did not fail
   
   PresidentData presidentData;
   presidentData.Reset();
