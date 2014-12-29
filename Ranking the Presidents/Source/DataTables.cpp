@@ -6,7 +6,8 @@
 
 // This number excludes William Henry Harrison and James Garfield.
 // It does not count Grover Cleveland twice.
-const int numberOfRankings = 41;
+// const int numberOfRankings = 41;
+const int numberOfRankings = 1;
 
 void readName(PresidentData& presidentData, std::ifstream& ist)
 {
@@ -81,10 +82,10 @@ void readYearsInOffice(PresidentData& presidentData, std::ifstream& ist)
     presidentData.termEnd.push_back(integerInput);
 
     // If a quotation is inputted, the loop will end;
-    // If a blank space is inputted, another pair of years will
+    // If a semi-colon is inputted, another pair of years will
     // be inputted
     ist >> characterInput;
-    assert(characterInput == ' ' || characterInput == '"');
+    assert(characterInput == ';' || characterInput == '"');
   }
 }
 
