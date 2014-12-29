@@ -20,14 +20,16 @@ void readName(PresidentData& presidentData, std::ifstream& ist)
   
   // Input a (opening) quotation
   ist >> characterInput;
-  if (ist.eof())
-    return;
-  assert(characterInput == '"');
+
+  // Prohibit file formatting issues; the issue of reaching the end of the
+  // file is addressed in the while loop below
+  assert(characterInput == '"' || ist.eof());
 
   characterInput = ' ';
 
-  // Input names until a (closing) quotation is encountered;
-  // Skip if end of file
+  // Input names until:
+  // an ending quotation is encountered OR
+  // the end of the file has been reached
   while (characterInput != '"' && !ist.eof())
   {
     ist >> stringInput;
@@ -58,9 +60,10 @@ void readYearsInOffice(PresidentData& presidentData, std::ifstream& ist)
 
   // Input a (opening) quotation
   ist >> characterInput;
-  if (ist.eof())
-    return;
-  assert(characterInput == '"');
+
+  // Prohibit file formatting issues; the issue of reaching the end of the
+  // file is addressed in the while loop below
+  assert(characterInput == '"' || ist.eof());
 
   characterInput = ' ';
 
