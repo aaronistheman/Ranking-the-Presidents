@@ -7,7 +7,7 @@
 // This number excludes William Henry Harrison and James Garfield.
 // It does not count Grover Cleveland twice.
 // const int numberOfRankings = 41;
-const int numberOfRankings = 1;
+const int numberOfRankings = 41;
 
 void readName(PresidentData& presidentData, std::ifstream& ist)
 {

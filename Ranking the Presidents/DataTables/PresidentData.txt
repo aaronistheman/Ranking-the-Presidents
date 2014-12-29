@@ -1,41 +1,41 @@
 "George Washington" 	7	Good		Federalist	"1789-1797"
-"John Adams" 		22	Poor		Federalist
-"Thomas Jefferson" 	26	Bad		Democrat
-"James Madison" 	28	Bad		Democrat
-"James Monroe" 		25	Bad		Democrat
-"John Quincy Adams" 	12	Average		Democrat
-"Andrew Jackson" 	27	Bad		Democrat
-"Martin Van Buren" 	3	Excellent	Democrat
-"John Tyler" 		1	Excellent	Whig
-"James Polk" 		38	Bad		Democrat
-"Zachary Taylor" 	13	Average		Whig
-"Millard Fillmore"	14	Average		Whig
-"Franklin Pierce"	24	Poor		Democrat
-"James Buchanan"	23	Poor		Democrat
-"Abraham Lincoln"	29	Bad		Republican
-"Andrew Johnson"	17	Poor		Republican
-"Ulysses Grant"		19	Poor		Republican
-"Rutherford Hayes"	4	Excellent	Republican
-"Chester Arthur"	5	Good		Republican
-"Grover Cleveland"	2	Excellent	Democrat
-"Benjamin Harrison"	15	Poor		Republican
-"William McKinley"	39	Bad		Republican
-"Theodore Roosevelt"	21	Poor		Republican
-"William Howard Taft"	20	Poor		Republican
-"Woodrow Wilson"	41	Bad		Democrat
-"Warren Harding"	6	Good		Republican
-"Calvin Coolidge"	10	Good		Republican
-"Herbert Hoover"	18	Poor		Republican
-"Franklin Roosevelt"	31	Bad		Democrat
-"Harry S Truman"	40	Bad		Democrat
-"Dwight Eisenhower"	9	Good		Republican
-"John F. Kennedy"	36	Bad		Democrat
-"Lyndon B. Johnson"	32	Bad		Democrat
-"Richard Nixon"		30	Bad		Republican
-"Gerald Ford"		16	Poor		Republican
-"Jimmy Carter"		8	Good		Democrat
-"Ronald Reagan"		35	Bad		Republican
-"George H.W. Bush"	33	Bad		Republican
-"William J. Clinton"	11	Average		Democrat
-"George W. Bush"	37	Bad		Republican
-"Barack Obama" 		34	Bad		Democrat
+"John Adams" 		22	Poor		Federalist	"1797-1801"
+"Thomas Jefferson" 	26	Bad		Democrat	"1801-1809"
+"James Madison" 	28	Bad		Democrat	"1809-1817"
+"James Monroe" 		25	Bad		Democrat	"1817-1825"
+"John Quincy Adams" 	12	Average		Democrat	"1825-1829"
+"Andrew Jackson" 	27	Bad		Democrat	"1829-1837"
+"Martin Van Buren" 	3	Excellent	Democrat	"1837-1841"
+"John Tyler" 		1	Excellent	Whig		"1841-1845"
+"James Polk" 		38	Bad		Democrat	"1845-1849"
+"Zachary Taylor" 	13	Average		Whig		"1849-1850"
+"Millard Fillmore"	14	Average		Whig		"1850-1853"
+"Franklin Pierce"	24	Poor		Democrat	"1853-1857"
+"James Buchanan"	23	Poor		Democrat	"1857-1861"
+"Abraham Lincoln"	29	Bad		Republican	"1861-1865"
+"Andrew Johnson"	17	Poor		Republican	"1865-1869"
+"Ulysses Grant"		19	Poor		Republican	"1869-1877"
+"Rutherford Hayes"	4	Excellent	Republican	"1877-1881"
+"Chester Arthur"	5	Good		Republican	"1881-1885"
+"Grover Cleveland"	2	Excellent	Democrat	"1885-1889;1893-1897"
+"Benjamin Harrison"	15	Poor		Republican	"1889-1893"
+"William McKinley"	39	Bad		Republican	"1897-1901"
+"Theodore Roosevelt"	21	Poor		Republican	"1901-1909"
+"William Howard Taft"	20	Poor		Republican	"1909-1913"
+"Woodrow Wilson"	41	Bad		Democrat	"1913-1921"
+"Warren Harding"	6	Good		Republican	"1921-1923"
+"Calvin Coolidge"	10	Good		Republican	"1923-1929"
+"Herbert Hoover"	18	Poor		Republican	"1929-1933"
+"Franklin Roosevelt"	31	Bad		Democrat	"1933-1945"
+"Harry S Truman"	40	Bad		Democrat	"1945-1953"
+"Dwight Eisenhower"	9	Good		Republican	"1953-1961"
+"John F. Kennedy"	36	Bad		Democrat	"1961-1963"
+"Lyndon B. Johnson"	32	Bad		Democrat	"1963-1969"
+"Richard Nixon"		30	Bad		Republican	"1969-1973"
+"Gerald Ford"		16	Poor		Republican	"1973-1977"
+"Jimmy Carter"		8	Good		Democrat	"1977-1981"
+"Ronald Reagan"		35	Bad		Republican	"1981-1989"
+"George H.W. Bush"	33	Bad		Republican	"1989-1993"
+"William J. Clinton"	11	Average		Democrat	"1993-2001"
+"George W. Bush"	37	Bad		Republican	"2001-2009"
+"Barack Obama" 		34	Bad		Democrat	"2009-2017"
