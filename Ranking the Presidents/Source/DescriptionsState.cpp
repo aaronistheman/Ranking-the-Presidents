@@ -31,9 +31,9 @@ DescriptionsState::DescriptionsState(StateStack& stack, Context context)
               << "Rank: " << itr->rank << '\n'
               << "Category: " << itr->category << '\n'
               << "Party: " << itr->party << '\n';
-    for (size_t i = 0; i < itr->termBeginning.size(); ++i)
-      std::cout << "Term Beginning: " << itr->termBeginning[i] << '\n'
-                << "Term End: " << itr->termEnd[i] << '\n';
+    for (size_t i = 0; i < itr->yearsInOfficePairs.size(); ++i)
+      std::cout << "Term Beginning: " << itr->yearsInOfficePairs[i].termBeginning << '\n'
+                << "Term End: " << itr->yearsInOfficePairs[i].termEnd << '\n';
     std::cout << '\n';
   }
 }

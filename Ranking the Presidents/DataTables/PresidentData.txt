@@ -1,1 +1,2 @@
 "George Washington" 	7	Good		Federalist	"1789-1797;1798-1803; 1552-1558"
+"John Adams" 		22	Poor		Federalist	"1797-1801"

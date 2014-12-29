@@ -5,6 +5,12 @@
 #include <vector>
 
 
+struct YearsInOfficePair
+{
+  int termBeginning; // in years (ex: 1825)
+  int termEnd;
+};
+
 struct PresidentData
 {
   enum Category
@@ -32,8 +38,7 @@ struct PresidentData
 
   // Use vector because a president (ex: Grover Cleveland) can have multiple
   // term beginnings/ends
-  std::vector<int>   termBeginning; // in years (ex: 1825)
-  std::vector<int>   termEnd;
+  std::vector<YearsInOfficePair> yearsInOfficePairs;
 };
 
 // For reading a president's category from the file

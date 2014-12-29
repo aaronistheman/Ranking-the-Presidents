@@ -7,7 +7,7 @@
 // This number excludes William Henry Harrison and James Garfield.
 // It does not count Grover Cleveland twice.
 // const int numberOfRankings = 41;
-const int numberOfRankings = 1;
+const int numberOfRankings = 2;
 
 void readName(PresidentData& presidentData, std::ifstream& ist)
 {
@@ -66,23 +66,21 @@ void readYearsInOffice(PresidentData& presidentData, std::ifstream& ist)
 
   // Input pairs of beginning and ending years in office until:
   // an ending quotation is encountered OR
-  // the president has reached two pairs of years in office (the maximum
-  // as per the 22nd Amendment) OR
   // the end of the file has been reached
-  while (characterInput != '"' && presidentData.termBeginning.size() < 2 && 
-         !ist.eof())
+  while (characterInput != '"' && !ist.eof())
   {
+    YearsInOfficePair yearsInOfficePair;
+    
     // Input beginning year
-    ist >> integerInput;
-    presidentData.termBeginning.push_back(integerInput);
+    ist >> yearsInOfficePair.termBeginning;
 
     // Input the dash in between a pair of years
     ist >> characterInput;
     assert(characterInput == '-');
 
     // Input ending year
-    ist >> integerInput;
-    presidentData.termEnd.push_back(integerInput);
+    ist >> yearsInOfficePair.termEnd;
+    presidentData.yearsInOfficePairs.push_back(yearsInOfficePair);
 
     // If a quotation is inputted, the loop will end;
     // If a semi-colon is inputted, another pair of years will
