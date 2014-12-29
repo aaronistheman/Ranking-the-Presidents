@@ -19,7 +19,8 @@ struct PresidentData
     Good,
     Average,
     Poor,
-    Bad
+    Bad,
+    NoCategory
   };
 
   enum Party
@@ -27,7 +28,8 @@ struct PresidentData
     Federalist,
     Democrat,
     Whig,
-    Republican
+    Republican,
+    NoParty
   };
 
   int           number;

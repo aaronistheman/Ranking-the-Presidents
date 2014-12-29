@@ -2,12 +2,13 @@
 
 #include <cassert>
 #include <fstream>
+#include <iostream>
 
 
 // This number excludes William Henry Harrison and James Garfield.
 // It does not count Grover Cleveland twice.
 // const int numberOfRankings = 41;
-const int numberOfRankings = 2;
+const int numberOfRankings = 3;
 
 void readName(PresidentData& presidentData, std::ifstream& ist)
 {
@@ -92,34 +93,43 @@ void readYearsInOffice(PresidentData& presidentData, std::ifstream& ist)
 
 std::vector<PresidentData> initializeDescriptionData()
 {
-  std::vector<PresidentData> data(numberOfRankings);
+  std::vector<PresidentData> data;
 
   std::string filePath = "DataTables/PresidentData.txt";
   std::ifstream ist(filePath.c_str());
   
-  // Keeps track of the number of the president in the sequence of
-  // all ranked presidents (ex: John Adams corresponds to 2)
-  int presidentNumber = 1;
+  PresidentData presidentData;
 
-  for (auto itr = data.begin(); itr != data.end() && !ist.eof(); ++itr)
+  for (int presidentNumber = 1; presidentNumber <= numberOfRankings; 
+       ++presidentNumber)
   {
-    // Input number and update presidentNumber
-    itr->number = presidentNumber;
-    ++presidentNumber;
+    // Input number
+    presidentData.number = presidentNumber;
 
-    readName(*itr, ist);
+    readName(presidentData, ist);
 
     // Read the president's rank
-    ist >> itr->rank;
+    std::cout << "Before reading, rank: " << presidentData.rank << '\n';
+    ist >> presidentData.rank;
+    std::cout << "After reading, rank: " << presidentData.rank << '\n';
 
     // Read the president's category
-    ist >> itr->category;
+    ist >> presidentData.category;
 
     // Read the president's party
-    ist >> itr->party;
+    ist >> presidentData.party;
 
     // Read the president's years in office
-    readYearsInOffice(*itr, ist);
+    readYearsInOffice(presidentData, ist);
+
+    data.push_back(presidentData);
+
+    // Reset presidentData
+    presidentData.number = 0;
+    presidentData.name = "";
+    presidentData.rank = 0;
+    presidentData.category = PresidentData::NoCategory;
+    presidentData.party = PresidentData::NoParty;
   }
 
   // stop file reading
