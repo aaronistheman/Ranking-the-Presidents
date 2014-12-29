@@ -99,6 +99,7 @@ std::vector<PresidentData> initializeDescriptionData()
   std::ifstream ist(filePath.c_str());
   
   PresidentData presidentData;
+  presidentData.Reset();
 
   for (int presidentNumber = 1; presidentNumber <= numberOfRankings; 
        ++presidentNumber)
@@ -124,12 +125,7 @@ std::vector<PresidentData> initializeDescriptionData()
 
     data.push_back(presidentData);
 
-    // Reset presidentData
-    presidentData.number = 0;
-    presidentData.name = "";
-    presidentData.rank = 0;
-    presidentData.category = PresidentData::NoCategory;
-    presidentData.party = PresidentData::NoParty;
+    presidentData.Reset();
   }
 
   // stop file reading

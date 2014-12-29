@@ -4,6 +4,15 @@
 #include <fstream>
 
 
+void PresidentData::Reset()
+{
+  number = 0;
+  name = "";
+  rank = 0;
+  category = PresidentData::NoCategory;
+  party = PresidentData::NoParty;
+}
+
 std::ifstream& operator>>(std::ifstream& ist, 
                           PresidentData::Category& category)
 {

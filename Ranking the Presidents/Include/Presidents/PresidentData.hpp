@@ -32,6 +32,8 @@ struct PresidentData
     NoParty
   };
 
+  void          Reset();
+
   int           number;
   std::string   name;
   int           rank;
