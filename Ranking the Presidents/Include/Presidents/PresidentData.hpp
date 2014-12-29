@@ -2,6 +2,7 @@
 #define PRESIDENTS_PRESIDENTDATA_HPP
 
 #include <string>
+#include <vector>
 
 
 struct PresidentData
@@ -28,6 +29,11 @@ struct PresidentData
   int           rank;
   Category      category;
   Party         party;
+
+  // Use vector because a president (ex: Grover Cleveland) can have multiple
+  // term beginnings/ends
+  std::vector<int>   termBeginning; // in years (ex: 1825)
+  std::vector<int>   termEnd;
 };
 
 // For reading a president's category from the file

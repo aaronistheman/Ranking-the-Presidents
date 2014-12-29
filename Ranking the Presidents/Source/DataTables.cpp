@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <fstream>
+#include <iostream>
 
 
 // This number excludes William Henry Harrison and James Garfield.
@@ -18,7 +19,7 @@ void readName(PresidentData& presidentData, std::ifstream& ist)
   int nameCount = 0;
   
   // Read until a (opening) quotation is encountered
-  while (characterInput != '"')
+  while (characterInput != '"' && !ist.eof())
   {
     ist >> characterInput;
   }
@@ -26,7 +27,7 @@ void readName(PresidentData& presidentData, std::ifstream& ist)
   characterInput = ' ';
 
   // Input names until a (closing) quotation is encountered
-  while (characterInput != '"')
+  while (characterInput != '"' && !ist.eof())
   {
     ist >> stringInput;
         
@@ -49,6 +50,45 @@ void readName(PresidentData& presidentData, std::ifstream& ist)
   }
 }
 
+void readYearsInOffice(PresidentData& presidentData, std::ifstream& ist)
+{
+  char characterInput = ' ';
+  int integerInput = 0;
+
+  // Read until a (opening) quotation is encountered
+  while (characterInput != '"' && !ist.eof())
+  {
+    ist >> characterInput;
+  }
+
+  characterInput = ' ';
+
+  // Input pairs of beginning and ending years in office until a
+  // (closing) quotation is encountered
+  while (characterInput != '"' && !ist.eof())
+  {
+    // Input beginning year
+    ist >> integerInput;
+    presidentData.termBeginning.push_back(integerInput);
+
+    // Input the dash in between a pair of years
+    ist >> characterInput;
+    assert(characterInput == '-');
+
+    // Input ending year
+    ist >> integerInput;
+    presidentData.termEnd.push_back(integerInput);
+    std::cout << "Ending year: " << integerInput << '\n';
+
+    // If a quotation is inputted, the loop will end;
+    // If a blank space is inputted, another pair of years will
+    // be inputted
+    ist >> characterInput;
+    std::cout << "Last character input: " << characterInput << '\n';
+    assert(characterInput == ' ' || characterInput == '"');
+  }
+}
+
 std::vector<PresidentData> initializeDescriptionData()
 {
   std::vector<PresidentData> data(numberOfRankings);
@@ -62,6 +102,8 @@ std::vector<PresidentData> initializeDescriptionData()
 
   for (auto itr = data.begin(); itr != data.end() && !ist.eof(); ++itr)
   {
+    std::cout << "ist.eof(): " << ist.eof() << '\n';
+    
     // Input number and update presidentNumber
     itr->number = presidentNumber;
     ++presidentNumber;
@@ -76,6 +118,9 @@ std::vector<PresidentData> initializeDescriptionData()
 
     // Read the president's party
     ist >> itr->party;
+
+    // Read the president's years in office
+    readYearsInOffice(*itr, ist);
   }
 
   // stop file reading

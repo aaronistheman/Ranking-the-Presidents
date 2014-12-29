@@ -1,0 +1,41 @@
+"George Washington" 	7	Good		Federalist	"1789-1797"
+"John Adams" 		22	Poor		Federalist
+"Thomas Jefferson" 	26	Bad		Democrat
+"James Madison" 	28	Bad		Democrat
+"James Monroe" 		25	Bad		Democrat
+"John Quincy Adams" 	12	Average		Democrat
+"Andrew Jackson" 	27	Bad		Democrat
+"Martin Van Buren" 	3	Excellent	Democrat
+"John Tyler" 		1	Excellent	Whig
+"James Polk" 		38	Bad		Democrat
+"Zachary Taylor" 	13	Average		Whig
+"Millard Fillmore"	14	Average		Whig
+"Franklin Pierce"	24	Poor		Democrat
+"James Buchanan"	23	Poor		Democrat
+"Abraham Lincoln"	29	Bad		Republican
+"Andrew Johnson"	17	Poor		Republican
+"Ulysses Grant"		19	Poor		Republican
+"Rutherford Hayes"	4	Excellent	Republican
+"Chester Arthur"	5	Good		Republican
+"Grover Cleveland"	2	Excellent	Democrat
+"Benjamin Harrison"	15	Poor		Republican
+"William McKinley"	39	Bad		Republican
+"Theodore Roosevelt"	21	Poor		Republican
+"William Howard Taft"	20	Poor		Republican
+"Woodrow Wilson"	41	Bad		Democrat
+"Warren Harding"	6	Good		Republican
+"Calvin Coolidge"	10	Good		Republican
+"Herbert Hoover"	18	Poor		Republican
+"Franklin Roosevelt"	31	Bad		Democrat
+"Harry S Truman"	40	Bad		Democrat
+"Dwight Eisenhower"	9	Good		Republican
+"John F. Kennedy"	36	Bad		Democrat
+"Lyndon B. Johnson"	32	Bad		Democrat
+"Richard Nixon"		30	Bad		Republican
+"Gerald Ford"		16	Poor		Republican
+"Jimmy Carter"		8	Good		Democrat
+"Ronald Reagan"		35	Bad		Republican
+"George H.W. Bush"	33	Bad		Republican
+"William J. Clinton"	11	Average		Democrat
+"George W. Bush"	37	Bad		Republican
+"Barack Obama" 		34	Bad		Democrat

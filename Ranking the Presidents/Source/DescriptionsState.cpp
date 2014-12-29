@@ -25,12 +25,17 @@ DescriptionsState::DescriptionsState(StateStack& stack, Context context)
   mDescriptionText.setPosition(context.window->getView().getSize() / 2.f);
 
   for (auto itr = Table.begin(); itr != Table.end(); ++itr)
+  {
     std::cout << "Number: " << itr->number << '\n' 
               << "Name: " << itr->name << '\n' 
               << "Rank: " << itr->rank << '\n'
               << "Category: " << itr->category << '\n'
-              << "Party: " << itr->party << '\n'
-              << '\n';
+              << "Party: " << itr->party << '\n';
+    for (size_t i = 0; itr->termBeginning.size(); ++i)
+      std::cout << "Term Beginning: " << itr->termBeginning[i] << '\n'
+                << "Term End: " << itr->termEnd[i] << '\n';
+    std::cout << '\n';
+  }
 }
 
 void DescriptionsState::draw()
