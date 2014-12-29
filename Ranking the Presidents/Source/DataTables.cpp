@@ -64,10 +64,13 @@ void readYearsInOffice(PresidentData& presidentData, std::ifstream& ist)
 
   characterInput = ' ';
 
-  // Input pairs of beginning and ending years in office until a
-  // (closing) quotation is encountered;
-  // Skip if end of file
-  while (characterInput != '"' && !ist.eof())
+  // Input pairs of beginning and ending years in office until:
+  // an ending quotation is encountered OR
+  // the president has reached two pairs of years in office (the maximum
+  // as per the 22nd Amendment) OR
+  // the end of the file has been reached
+  while (characterInput != '"' && presidentData.termBeginning.size() < 2 && 
+         !ist.eof())
   {
     // Input beginning year
     ist >> integerInput;
