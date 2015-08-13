@@ -4,8 +4,10 @@
 About
 -----
 
-This is an unfinished application that I had been writing during the winter
-of my senior year in high school. 
+This is an unfinished application that I had been writing during the
+winter of my senior year in high school. 
+
+I programmed it in C++ with the help of the SFML 2.1 library.
 
 
 Features
