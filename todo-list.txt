@@ -1,0 +1,7 @@
+Now:
+-make file reading code more readable
+
+After essentials:
+-change RankingsState to not use three vectors of sf::Text objects?
+-make RankingsState and DescriptionsState share a data vector
+-change the first parameters of the two file reading helper functions?

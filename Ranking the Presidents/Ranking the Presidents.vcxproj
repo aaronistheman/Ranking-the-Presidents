@@ -43,9 +43,13 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Include;SFML-2.1\include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);SFML_STATIC</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>SFML-2.1\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -54,15 +58,51 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>Include;SFML-2.1\include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);SFML_STATIC</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>SFML-2.1\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\AboutState.cpp" />
+    <ClCompile Include="Source\Application.cpp" />
+    <ClCompile Include="Source\DataTables.cpp" />
+    <ClCompile Include="Source\PresidentData.cpp" />
+    <ClCompile Include="Source\DescriptionsState.cpp" />
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\MainMenuState.cpp" />
+    <ClCompile Include="Source\ProfilesState.cpp" />
+    <ClCompile Include="Source\RankingsState.cpp" />
+    <ClCompile Include="Source\State.cpp" />
+    <ClCompile Include="Source\StateStack.cpp" />
+    <ClCompile Include="Source\Utility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Presidents\AboutState.hpp" />
+    <ClInclude Include="Include\Presidents\Application.hpp" />
+    <ClInclude Include="Include\Presidents\DataTables.hpp" />
+    <ClInclude Include="Include\Presidents\PresidentData.hpp" />
+    <ClInclude Include="Include\Presidents\DescriptionsState.hpp" />
+    <ClInclude Include="Include\Presidents\Foreach.hpp" />
+    <ClInclude Include="Include\Presidents\MainMenuState.hpp" />
+    <ClInclude Include="Include\Presidents\ProfilesState.hpp" />
+    <ClInclude Include="Include\Presidents\RankingsState.hpp" />
+    <ClInclude Include="Include\Presidents\ResourceHolder.hpp" />
+    <ClInclude Include="Include\Presidents\ResourceIdentifiers.hpp" />
+    <ClInclude Include="Include\Presidents\State.hpp" />
+    <ClInclude Include="Include\Presidents\StateIdentifiers.hpp" />
+    <ClInclude Include="Include\Presidents\StateStack.hpp" />
+    <ClInclude Include="Include\Presidents\Utility.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Include\Presidents\ResourceHolder.inl" />
+    <None Include="Include\Presidents\Utility.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
